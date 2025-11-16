@@ -1,0 +1,34 @@
+//
+// ${NAME}.h
+// Metal Shader Interface
+//
+// Created by ${USER} on ${DATE}.
+//
+
+#ifndef ${NAME}_h
+#define ${NAME}_h
+
+#include <metal_stdlib>
+
+// Vertex input structure
+struct VertexIn {
+    metal::float4 position [[attribute(0)]];
+    metal::float2 texCoord [[attribute(1)]];
+    metal::float3 normal [[attribute(2)]];
+};
+
+// Vertex output structure
+struct VertexOut {
+    metal::float4 position [[position]];
+    metal::float2 texCoord;
+    metal::float3 normal;
+};
+
+// Uniform buffer structure
+struct Uniforms {
+    metal::float4x4 modelViewProjectionMatrix;
+    metal::float3x3 normalMatrix;
+    metal::float4 lightPosition;
+};
+
+#endif /* ${NAME}_h */

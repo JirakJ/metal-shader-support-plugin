@@ -1,0 +1,56 @@
+==============================================================================
+METAL SHADER SUPPORT - PRO LICENSE
+==============================================================================
+
+License Key: METAL-PRO-1234-5678-ABCD
+License Type: PRO
+Licensee: Test Pro User
+Valid Until: Perpetual (for testing)
+
+This is a TEST/DEVELOPMENT license for demonstration purposes.
+
+PRO FEATURES INCLUDED:
+----------------------
+✓ Live Shader Preview
+✓ Metal Debugger integration
+✓ GPU Profiler with performance metrics
+✓ Advanced Shader Validator
+✓ Shader Optimizer with auto-fixes
+✓ Debug Helper utilities
+✓ Real-time performance analysis
+
+HOW TO ACTIVATE:
+----------------
+1. Open IntelliJ IDEA
+2. Go to: Tools → Metal Shader Support → License → Activate License
+3. Enter license key: METAL-PRO-1234-5678-ABCD
+4. Click "Activate"
+5. No restart required - features activate immediately!
+
+VERIFICATION:
+-------------
+After activation, verify by:
+- Tools → Metal Shader Support → License → License Information
+- Should show: "Pro (METAL-PRO-1234-5678-ABCD)"
+
+PRO PRICING (Production):
+--------------------------
+$49/year per developer
+- Individual developer license
+- Includes all Pro features
+- Email support
+- Regular updates
+
+UPGRADE TO ENTERPRISE:
+----------------------
+Need shader transpilation or team features?
+Upgrade to Enterprise for $199/year
+
+CONTACT:
+--------
+Email: support@jakubjirak.com
+Purchase: https://jakubjirak.com (coming soon)
+
+==============================================================================
+Copyright (c) 2025 Jakub Jirák. All rights reserved.
+==============================================================================

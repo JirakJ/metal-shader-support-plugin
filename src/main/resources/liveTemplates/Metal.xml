@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateSet group="Metal">
+    <template name="vertex" value="vertex $RETURN_TYPE$ $NAME$(&#10;    $VERTEX_IN$ in [[stage_in]],&#10;    constant $MATRIX_TYPE$&amp; mvpMatrix [[buffer(0)]]&#10;) {&#10;    $RETURN_TYPE$ out;&#10;    $END$&#10;    return out;&#10;}" 
+              description="Vertex shader function" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="RETURN_TYPE" expression="" defaultValue="&quot;VertexOut&quot;" alwaysStopAt="true" />
+        <variable name="NAME" expression="" defaultValue="&quot;vertexShader&quot;" alwaysStopAt="true" />
+        <variable name="VERTEX_IN" expression="" defaultValue="&quot;VertexIn&quot;" alwaysStopAt="true" />
+        <variable name="MATRIX_TYPE" expression="" defaultValue="&quot;float4x4&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="fragment" value="fragment $RETURN_TYPE$ $NAME$(&#10;    $VERTEX_OUT$ in [[stage_in]]&#10;) {&#10;    $END$&#10;    return $RETURN_VALUE$;&#10;}" 
+              description="Fragment shader function" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="RETURN_TYPE" expression="" defaultValue="&quot;float4&quot;" alwaysStopAt="true" />
+        <variable name="NAME" expression="" defaultValue="&quot;fragmentShader&quot;" alwaysStopAt="true" />
+        <variable name="VERTEX_OUT" expression="" defaultValue="&quot;VertexOut&quot;" alwaysStopAt="true" />
+        <variable name="RETURN_VALUE" expression="" defaultValue="&quot;float4(1.0)&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="kernel" value="kernel void $NAME$(&#10;    texture2d&lt;$TYPE$, access::read&gt; inTexture [[texture(0)]],&#10;    texture2d&lt;$TYPE$, access::write&gt; outTexture [[texture(1)]],&#10;    uint2 gid [[thread_position_in_grid]]&#10;) {&#10;    if (gid.x &gt;= outTexture.get_width() || gid.y &gt;= outTexture.get_height()) {&#10;        return;&#10;    }&#10;    &#10;    $TYPE$4 color = inTexture.read(gid);&#10;    $END$&#10;    outTexture.write(color, gid);&#10;}" 
+              description="Compute kernel function" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;computeKernel&quot;" alwaysStopAt="true" />
+        <variable name="TYPE" expression="" defaultValue="&quot;float&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="struct" value="struct $NAME$ {&#10;    $END$&#10;};" 
+              description="Structure definition" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;MyStruct&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="raytrace" value="kernel void $NAME$Kernel(&#10;    texture2d&lt;float, access::write&gt; outputTexture [[texture(0)]],&#10;    instance_acceleration_structure accelerationStructure [[buffer(0)]],&#10;    constant float3&amp; rayOrigin [[buffer(1)]],&#10;    constant float3&amp; rayDirection [[buffer(2)]],&#10;    uint2 gid [[thread_position_in_grid]]&#10;) {&#10;    if (gid.x &gt;= outputTexture.get_width() || gid.y &gt;= outputTexture.get_height()) {&#10;        return;&#10;    }&#10;    &#10;    Ray ray;&#10;    ray.origin = rayOrigin;&#10;    ray.direction = rayDirection;&#10;    ray.minDistance = 0.0;&#10;    ray.maxDistance = 1000.0;&#10;    &#10;    intersector&lt;triangle_data, instancing&gt; intersector;&#10;    auto intersection = intersector.intersect(ray, accelerationStructure, RAY_MASK_ALL);&#10;    &#10;    $END$&#10;    &#10;    float3 color = float3(1.0);&#10;    outputTexture.write(float4(color, 1.0), gid);&#10;}" 
+              description="Raytracing kernel (Metal 4)" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;raytrace&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="objectshader" value="[[object, max_total_threadgroups_per_mesh_grid($MAX_GROUPS$)]]&#10;void $NAME$(&#10;    object_data $PAYLOAD$&amp; payload [[payload]],&#10;    constant SceneData&amp; sceneData [[buffer(0)]],&#10;    uint threadId [[thread_position_in_grid]],&#10;    mesh_grid_properties meshGridProps&#10;) {&#10;    $END$&#10;    &#10;    if (threadId == 0) {&#10;        meshGridProps.set_threadgroups_per_grid(uint3(1, 1, 1));&#10;    }&#10;}" 
+              description="Object shader (Metal 4)" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;objectShader&quot;" alwaysStopAt="true" />
+        <variable name="PAYLOAD" expression="" defaultValue="&quot;Payload&quot;" alwaysStopAt="true" />
+        <variable name="MAX_GROUPS" expression="" defaultValue="&quot;32&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+    
+    <template name="meshshader" value="using MeshOutput = mesh&lt;$VERTEX$, $PRIMITIVE$, $MAX_VERTS$, $MAX_PRIMS$, topology::triangle&gt;;&#10;&#10;[[mesh, max_total_threads_per_threadgroup($THREADS$)]]&#10;void $NAME$(&#10;    MeshOutput output,&#10;    uint meshletId [[threadgroup_position_in_grid]],&#10;    uint threadId [[thread_position_in_threadgroup]]&#10;) {&#10;    if (threadId == 0) {&#10;        output.set_vertex_count($MAX_VERTS$);&#10;        output.set_primitive_count($MAX_PRIMS$);&#10;    }&#10;    &#10;    $END$&#10;}" 
+              description="Mesh shader (Metal 4)" 
+              toReformat="true" 
+              toShortenFQNames="true">
+        <variable name="NAME" expression="" defaultValue="&quot;meshShader&quot;" alwaysStopAt="true" />
+        <variable name="VERTEX" expression="" defaultValue="&quot;Vertex&quot;" alwaysStopAt="true" />
+        <variable name="PRIMITIVE" expression="" defaultValue="&quot;Primitive&quot;" alwaysStopAt="true" />
+        <variable name="MAX_VERTS" expression="" defaultValue="&quot;64&quot;" alwaysStopAt="true" />
+        <variable name="MAX_PRIMS" expression="" defaultValue="&quot;126&quot;" alwaysStopAt="true" />
+        <variable name="THREADS" expression="" defaultValue="&quot;128&quot;" alwaysStopAt="true" />
+        <context>
+            <option name="METAL" value="true" />
+        </context>
+    </template>
+</templateSet>
