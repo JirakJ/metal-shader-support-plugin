@@ -36,7 +36,6 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("242")
-        untilBuild.set("253.*")
         version.set(project.version.toString())
         
         // Convert version to release version format: 1.0.10 -> 10010
