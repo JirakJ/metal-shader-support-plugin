@@ -1,0 +1,360 @@
+<idea-plugin>
+    <id>com.jakubjirak.metalshader</id>
+    <name>Metal Shader Support</name>
+    <vendor email="support@jakubjirak.com" url="https://jakubjirak.com">Jakub Jirák</vendor>
+
+    <description><![CDATA[
+    <h2>Metal Shader Support - Professional GPU Programming for Apple Platforms</h2>
+    
+    <p><b>⚡ Freemium Plugin</b> - Basic features free, Pro features available with license.</p>
+    
+    <p>Comprehensive Metal Shading Language (MSL) support for IntelliJ-based IDEs. 
+    Build high-performance GPU applications with full Metal 3.2 and Metal 4.0 support.</p>
+    
+    <h3>✨ Key Features</h3>
+    <ul>
+      <li><b>Full Metal 3.2 & 4.0 Syntax Highlighting</b> - Advanced semantic highlighting for all Metal versions</li>
+      <li><b>Metal 4.0 Feature Support</b> - Raytracing, Mesh Shaders, latest GPU features (iOS 18+, macOS 15+)</li>
+      <li><b>Smart Code Completion</b> - 300+ keywords, types, and functions with documentation</li>
+      <li><b>Performance Analysis</b> - Real-time optimization hints and complexity analyzer</li>
+      <li><b>MPS Integration</b> - Metal Performance Shaders auto-completion (50+ classes)</li>
+      <li><b>Professional Tools</b> - Structure view, find usages, refactoring, code folding</li>
+      <li><b>Rich Examples</b> - 1,500+ lines of production-ready shader code</li>
+    </ul>
+    
+    <h3>🎯 Metal 4.0 Language Features</h3>
+    <ul>
+      <li>Hardware-accelerated raytracing with acceleration structures</li>
+      <li>Mesh shading pipeline (object & mesh shaders)</li>
+      <li>Advanced atomic operations (atomic_float, atomic_double)</li>
+      <li>64-bit vector types (long2-4, double2-4)</li>
+      <li>Sparse textures and advanced memory operations</li>
+      <li>Complete syntax support for Metal Shading Language 3.2 and 4.0</li>
+    </ul>
+    
+    <h3>🔧 Supported File Types</h3>
+    <p>.metal, .msl, .mm, .h, .hpp</p>
+    
+    <h3>⚡ Performance Tools</h3>
+    <ul>
+      <li>Real-time performance inspection with optimization hints</li>
+      <li>Shader complexity analyzer (cycles estimation)</li>
+      <li>Thread divergence detection</li>
+      <li>Memory bandwidth analysis</li>
+      <li>Automatic suggestions for vectorization</li>
+    </ul>
+    
+    <h3>💡 Perfect For</h3>
+    <ul>
+      <li>Game developers (Unity, Unreal, custom engines)</li>
+      <li>GPU compute (ML/AI inference, video processing)</li>
+      <li>Graphics programmers (rendering engines, AR/VR)</li>
+      <li>Vision Pro developers</li>
+    </ul>
+    
+    <h3>💰 Freemium Licensing</h3>
+    <ul>
+      <li><b>Free Tier:</b> Basic syntax, completion, templates</li>
+      <li><b>Pro Tier:</b> Performance tools, complexity analyzer, advanced features</li>
+      <li>Contact: support@jakubjirak.com for licensing</li>
+    </ul>
+    
+    <p><i>© 2025 Jakub Jirák. Proprietary software. All rights reserved.</i></p>
+    
+    <h3>📚 Includes Examples</h3>
+    <ul>
+      <li>Basic vertex/fragment shaders</li>
+      <li>Compute kernels with threadgroup memory</li>
+      <li>Metal 4 raytracing (path tracing, shadows, AO)</li>
+      <li>Metal 4 mesh shaders (LOD, culling, procedural)</li>
+      <li>Metal Performance Shaders integration</li>
+    </ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>Version 1.0.4 (November 2025) 🚀</h3>
+    <ul>
+      <li><b>NEW Pro Feature:</b> Live Shader Preview - Real-time inline shader rendering at 60 FPS</li>
+      <li><b>NEW Pro Feature:</b> Metal Debugger Panel - Visual debugging with variable inspection</li>
+      <li><b>NEW Pro Feature:</b> GPU Profiler - Advanced performance charts and analysis</li>
+      <li><b>NEW Enterprise Feature:</b> Cross-Platform Transpiler - Metal → SPIR-V/HLSL/WGSL</li>
+      <li><b>IMPROVED:</b> Tool window integration for preview and profiling</li>
+      <li><b>IMPROVED:</b> Real-time performance metrics and FPS counter</li>
+      <li>Added 2,000+ lines of Pro/Enterprise features</li>
+    </ul>
+    
+    <h3>Version 1.0.3 (November 2025) 🎯</h3>
+    <ul>
+      <li><b>NEW:</b> License menu in Tools → Metal Shader Support → License submenu</li>
+      <li><b>NEW:</b> License persistence - your license is saved and remembered</li>
+      <li><b>NEW:</b> License Information action - view current license status</li>
+      <li><b>NEW:</b> Deactivate License action - easily switch licenses</li>
+      <li><b>NEW:</b> Startup notifications - friendly reminders about tier status</li>
+      <li><b>IMPROVED:</b> Better license activation UI with pricing info</li>
+      <li><b>IMPROVED:</b> License stored in IDE preferences (survives updates)</li>
+    </ul>
+    
+    <h3>Version 1.0.2 (November 2025) 🚀</h3>
+    <ul>
+      <li><b>NEW Pro Feature:</b> Shader Profiler - GPU cycle estimation and bottleneck detection</li>
+      <li><b>NEW Pro Feature:</b> Advanced Shader Validator - comprehensive validation beyond syntax</li>
+      <li><b>NEW Pro Feature:</b> Shader Optimizer - automatic code optimizations with one-click apply</li>
+      <li><b>NEW Pro Feature:</b> Debug Helper - texture visualizers and assert helpers</li>
+      <li>Added 6 new Pro feature classes (1,800+ lines)</li>
+      <li>All Pro features integrated with license manager</li>
+    </ul>
+    
+    <h3>Version 1.0.1 (November 2025)</h3>
+    <ul>
+      <li>Updated license to proprietary</li>
+      <li>Changed minimum IDE version to 242 (2024.2+)</li>
+      <li>Added freemium licensing model</li>
+      <li>Updated vendor information</li>
+    </ul>
+    
+    <h3>Version 1.0.0 (November 2025)</h3>
+    <ul>
+      <li><b>Initial Release</b> - Full production-ready Metal shader support</li>
+      <li>Complete Metal 3.2 and Metal 4.0 language support</li>
+      <li>300+ keywords, types, and built-in functions</li>
+      <li>Smart code completion with documentation</li>
+      <li>Performance inspection with real-time hints</li>
+      <li>Shader complexity analyzer</li>
+      <li>Metal Performance Shaders (MPS) integration</li>
+      <li>10 live templates for rapid development</li>
+      <li>Structure view and navigation</li>
+      <li>1,500+ lines of example code</li>
+      <li>Support for .metal, .msl, .mm, .h, .hpp files</li>
+    </ul>
+    
+    <h4>Metal 4.0 Features (iOS 18+, macOS 15+):</h4>
+    <ul>
+      <li>Raytracing: acceleration structures, ray queries, custom intersections</li>
+      <li>Mesh Shaders: object shaders, mesh shaders, GPU-driven rendering</li>
+      <li>40+ new raytracing functions</li>
+      <li>30+ new types (atomic_float, long2-4, double2-4)</li>
+      <li>Complete attribute support [[payload]], [[ray_origin]], etc.</li>
+    </ul>
+    
+    <h4>Performance Tools:</h4>
+    <ul>
+      <li>Detect expensive operations (pow, sqrt, division)</li>
+      <li>Thread divergence warnings</li>
+      <li>Texture access optimization</li>
+      <li>Threadgroup memory analysis</li>
+      <li>Automatic optimization suggestions</li>
+    </ul>
+    ]]></change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <!-- Dynamic Plugin Listeners - NO RESTART REQUIRED! -->
+    <applicationListeners>
+        <listener class="com.jakubjirak.metalshader.listeners.PluginLifecycleListener"
+                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+    </applicationListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- License Manager -->
+        <applicationService
+                serviceImplementation="com.jakubjirak.metalshader.licensing.MetalLicenseManager"/>
+        
+        <!-- Startup Activity for License Notifications -->
+        <postStartupActivity implementation="com.jakubjirak.metalshader.licensing.LicenseStartupActivity"/>
+        
+        <!-- Notification Group -->
+        <notificationGroup id="Metal Shader Support" displayType="BALLOON" isLogByDefault="false"/>
+        <!-- File Type -->
+        <fileType
+                name="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalFileType"
+                fieldName="INSTANCE"
+                language="Metal"
+                extensions="metal;msl;mm;h;hpp"/>
+        
+        <!-- File Type Factory for patterns -->
+        <fileType.fileViewProviderFactory
+                filetype="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalFileViewProviderFactory"/>
+
+        <!-- Language -->
+        <lang.parserDefinition
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalParserDefinition"/>
+
+        <!-- Syntax Highlighter -->
+        <lang.syntaxHighlighterFactory
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.highlighting.MetalSyntaxHighlighterFactory"/>
+
+        <!-- Color Settings -->
+        <colorSettingsPage
+                implementation="com.jakubjirak.metalshader.highlighting.MetalColorSettingsPage"/>
+
+        <!-- Code Completion -->
+        <completion.contributor
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.completion.MetalCompletionContributor"/>
+        <completion.contributor
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.completion.MetalMPSCompletionContributor"/>
+
+        <!-- Annotator for error detection -->
+        <annotator
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.annotator.MetalAnnotator"/>
+        
+        <!-- Performance Inspection -->
+        <localInspection
+                language="Metal"
+                shortName="MetalPerformance"
+                displayName="Metal Performance Hints"
+                groupName="Metal"
+                enabledByDefault="true"
+                level="WARNING"
+                implementationClass="com.jakubjirak.metalshader.inspections.MetalPerformanceInspection"/>
+
+        <!-- Commenter -->
+        <lang.commenter
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalCommenter"/>
+
+        <!-- Brace Matcher -->
+        <lang.braceMatcher
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalBraceMatcher"/>
+
+        <!-- Quote Handler -->
+        <lang.quoteHandler
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalQuoteHandler"/>
+
+        <!-- Live Templates -->
+        <defaultLiveTemplates file="/liveTemplates/Metal.xml"/>
+        <liveTemplateContext
+                contextId="METAL"
+                implementation="com.jakubjirak.metalshader.language.MetalTemplateContextType"/>
+        
+        <!-- Code Folding -->
+        <lang.foldingBuilder
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalFoldingBuilder"/>
+        
+        <!-- Structure View -->
+        <lang.psiStructureViewFactory
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalStructureViewFactory"/>
+        
+        <!-- Find Usages -->
+        <lang.findUsagesProvider
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalFindUsagesProvider"/>
+        
+        <!-- Formatter -->
+        <lang.formatter
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalFormattingModelBuilder"/>
+        
+        <!-- Documentation Provider -->
+        <lang.documentationProvider
+                language="Metal"
+                implementationClass="com.jakubjirak.metalshader.language.MetalDocumentationProvider"/>
+        
+        <!-- File Template -->
+        <internalFileTemplate name="Metal Shader"/>
+        <internalFileTemplate name="Metal Kernel"/>
+        <internalFileTemplate name="Metal Header"/>
+        
+        <!-- Tool Windows -->
+        <toolWindow id="Metal Shader Preview"
+                    factoryClass="com.jakubjirak.metalshader.pro.preview.MetalShaderPreviewToolWindowFactory"
+                    anchor="right"
+                    icon="AllIcons.Toolwindows.ToolWindowRun"/>
+        
+        <toolWindow id="Metal Debugger"
+                    factoryClass="com.jakubjirak.metalshader.pro.debugger.MetalDebuggerToolWindowFactory"
+                    anchor="bottom"
+                    icon="AllIcons.Toolwindows.ToolWindowDebugger"/>
+        
+        <toolWindow id="Metal Profiler"
+                    factoryClass="com.jakubjirak.metalshader.pro.profiler.MetalProfilerToolWindowFactory"
+                    anchor="bottom"
+                    icon="AllIcons.Actions.ProfileCPU"/>
+        
+        <!-- Project Services -->
+        <projectService serviceImplementation="com.jakubjirak.metalshader.pro.preview.MetalShaderPreviewService"/>
+        <projectService serviceImplementation="com.jakubjirak.metalshader.enterprise.transpiler.MetalTranspilerService"/>
+    </extensions>
+
+    <actions>
+        <!-- Metal Shader Support submenu -->
+        <group id="Metal.Menu" text="Metal Shader Support" description="Metal shader tools" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            
+            <!-- License Management -->
+            <group id="Metal.LicenseGroup" text="License" description="License management" popup="true">
+                <action id="Metal.ActivateLicense"
+                        class="com.jakubjirak.metalshader.licensing.LicenseActivationAction"
+                        text="Activate License..."
+                        description="Activate Metal Shader Support Pro license">
+                </action>
+                <action id="Metal.LicenseInfo"
+                        class="com.jakubjirak.metalshader.licensing.LicenseInfoAction"
+                        text="License Information"
+                        description="View current license status">
+                </action>
+                <action id="Metal.DeactivateLicense"
+                        class="com.jakubjirak.metalshader.licensing.DeactivateLicenseAction"
+                        text="Deactivate License"
+                        description="Deactivate current license">
+                </action>
+            </group>
+            
+            <separator/>
+            
+            <!-- Shader Tools -->
+            <action id="Metal.AnalyzeComplexity"
+                    class="com.jakubjirak.metalshader.actions.AnalyzeShaderComplexityAction"
+                    text="Analyze Shader Complexity (Pro)"
+                    description="Analyze Metal shader performance and complexity">
+            </action>
+            <action id="Metal.ProfileShader"
+                    class="com.jakubjirak.metalshader.pro.ProfileShaderAction"
+                    text="Profile Shader Performance (Pro)"
+                    description="Estimate GPU cycles and identify bottlenecks">
+            </action>
+            <action id="Metal.ValidateShader"
+                    class="com.jakubjirak.metalshader.pro.ValidateShaderAction"
+                    text="Validate Shader (Pro)"
+                    description="Advanced shader validation and error detection">
+            </action>
+            <action id="Metal.OptimizeShader"
+                    class="com.jakubjirak.metalshader.pro.OptimizeShaderAction"
+                    text="Optimize Shader (Pro)"
+                    description="Automatic shader optimization suggestions">
+            </action>
+            <action id="Metal.ProfilerNew"
+                    class="com.jakubjirak.metalshader.pro.profiler.ShaderProfilerAction"
+                    text="GPU Profiler (Pro)"
+                    description="Detailed GPU performance analysis">
+            </action>
+            <action id="Metal.Transpile"
+                    class="com.jakubjirak.metalshader.enterprise.transpiler.TranspileAction"
+                    text="Transpile Shader (Enterprise)"
+                    description="Convert Metal shaders to SPIR-V/HLSL/WGSL">
+            </action>
+        </group>
+        
+        <!-- Context menu for Metal files -->
+        <group id="Metal.EditorPopup">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <separator/>
+            <action id="Metal.AnalyzeComplexity.Popup"
+                    class="com.jakubjirak.metalshader.actions.AnalyzeShaderComplexityAction"
+                    text="Analyze Metal Shader Complexity"
+                    description="Analyze shader performance">
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
