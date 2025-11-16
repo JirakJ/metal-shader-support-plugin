@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b68ee;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="12" height="14" x="2" y="1" rx="1" fill="url(#metalGradient)"/>
+  <text x="8" y="11" font-family="Arial" font-size="7" fill="white" text-anchor="middle" font-weight="bold">M</text>
+</svg>
