@@ -2,7 +2,6 @@
 package com.jakubjirak.metal.enterprise.transpiler
 
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 
 @Service(Service.Level.PROJECT)
@@ -75,6 +74,9 @@ class MetalTranspilerService(private val project: Project) {
     )
     
     companion object {
-        fun getInstance(project: Project): MetalTranspilerService = project.service()
+        fun getInstance(project: Project): MetalTranspilerService {
+            return project.getService(MetalTranspilerService::class.java)
+                ?: throw IllegalStateException("MetalTranspilerService not found")
+        }
     }
 }
