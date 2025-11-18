@@ -3,7 +3,6 @@ package com.jakubjirak.metal.pro.preview
 
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.components.Service
-import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
@@ -73,6 +72,9 @@ class MetalShaderPreviewService(private val project: Project) : Disposable {
     }
     
     companion object {
-        fun getInstance(project: Project): MetalShaderPreviewService = project.service()
+        fun getInstance(project: Project): MetalShaderPreviewService {
+            return project.getService(MetalShaderPreviewService::class.java)
+                ?: throw IllegalStateException("MetalShaderPreviewService not found")
+        }
     }
 }
