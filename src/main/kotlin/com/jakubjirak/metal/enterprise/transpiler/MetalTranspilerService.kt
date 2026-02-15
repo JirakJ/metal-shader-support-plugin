@@ -76,7 +76,6 @@ class MetalTranspilerService(private val project: Project) {
     companion object {
         fun getInstance(project: Project): MetalTranspilerService {
             return project.getService(MetalTranspilerService::class.java)
-                ?: throw IllegalStateException("MetalTranspilerService not found")
         }
     }
 }

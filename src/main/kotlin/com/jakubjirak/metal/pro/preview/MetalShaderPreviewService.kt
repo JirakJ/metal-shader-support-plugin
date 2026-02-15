@@ -74,7 +74,6 @@ class MetalShaderPreviewService(private val project: Project) : Disposable {
     companion object {
         fun getInstance(project: Project): MetalShaderPreviewService {
             return project.getService(MetalShaderPreviewService::class.java)
-                ?: throw IllegalStateException("MetalShaderPreviewService not found")
         }
     }
 }
