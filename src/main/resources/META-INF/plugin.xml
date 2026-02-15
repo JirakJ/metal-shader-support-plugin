@@ -149,8 +149,8 @@
     <!-- FREEMIUM MARKETPLACE CONFIGURATION -->
     <product-descriptor
         code="PMETALSHADERSUP"
-        release-date="20251127"
-        release-version="20251"
+        release-date="20260215"
+        release-version="20262"
         optional="true"/>
 
     <depends>com.intellij.modules.platform</depends>
