@@ -4,72 +4,35 @@
     <vendor email="support@jakubjirak.com" url="https://jakubjirak.com">Jakub Jirák</vendor>
 
     <description><![CDATA[
-    <h2>Metal Shader Support - Professional GPU Programming for Apple Platforms</h2>
-    
-    <p><b>⚡ Freemium Plugin</b> - Basic features free, Pro features available with license.</p>
-    
-    <p>Comprehensive Metal Shading Language (MSL) support for IntelliJ-based IDEs. 
-    Build high-performance GPU applications with full Metal 3.2 and Metal 4.0 support.</p>
-    
-    <h3>✨ Key Features</h3>
-    <ul>
-      <li><b>Full Metal 3.2 & 4.0 Syntax Highlighting</b> - Advanced semantic highlighting for all Metal versions</li>
-      <li><b>Metal 4.0 Feature Support</b> - Raytracing, Mesh Shaders, latest GPU features (iOS 18+, macOS 15+)</li>
-      <li><b>Smart Code Completion</b> - 300+ keywords, types, and functions with documentation</li>
-      <li><b>Performance Analysis</b> - Real-time optimization hints and complexity analyzer</li>
-      <li><b>MPS Integration</b> - Metal Performance Shaders auto-completion (50+ classes)</li>
-      <li><b>Professional Tools</b> - Structure view, find usages, refactoring, code folding</li>
-      <li><b>Rich Examples</b> - 1,500+ lines of production-ready shader code</li>
-    </ul>
-    
-    <h3>🎯 Metal 4.0 Language Features</h3>
-    <ul>
-      <li>Hardware-accelerated raytracing with acceleration structures</li>
-      <li>Mesh shading pipeline (object & mesh shaders)</li>
-      <li>Advanced atomic operations (atomic_float, atomic_double)</li>
-      <li>64-bit vector types (long2-4, double2-4)</li>
-      <li>Sparse textures and advanced memory operations</li>
-      <li>Complete syntax support for Metal Shading Language 3.2 and 4.0</li>
-    </ul>
-    
-    <h3>🔧 Supported File Types</h3>
-    <p>.metal, .msl, .mm, .h, .hpp</p>
-    
-    <h3>⚡ Performance Tools</h3>
-    <ul>
-      <li>Real-time performance inspection with optimization hints</li>
-      <li>Shader complexity analyzer (cycles estimation)</li>
-      <li>Thread divergence detection</li>
-      <li>Memory bandwidth analysis</li>
-      <li>Automatic suggestions for vectorization</li>
-    </ul>
-    
-    <h3>💡 Perfect For</h3>
-    <ul>
-      <li>Game developers (Unity, Unreal, custom engines)</li>
-      <li>GPU compute (ML/AI inference, video processing)</li>
-      <li>Graphics programmers (rendering engines, AR/VR)</li>
-      <li>Vision Pro developers</li>
-    </ul>
-    
-    <h3>💰 Freemium Licensing</h3>
-    <ul>
-      <li><b>Free Tier:</b> Basic syntax, completion, templates</li>
-      <li><b>Pro Tier:</b> Performance tools, complexity analyzer, advanced features</li>
-      <li>Contact: support@jakubjirak.com for licensing</li>
-    </ul>
-    
-    <p><i>© 2025 Jakub Jirák. Proprietary software. All rights reserved.</i></p>
-    
-    <h3>📚 Includes Examples</h3>
-    <ul>
-      <li>Basic vertex/fragment shaders</li>
-      <li>Compute kernels with threadgroup memory</li>
-      <li>Metal 4 raytracing (path tracing, shadows, AO)</li>
-      <li>Metal 4 mesh shaders (LOD, culling, procedural)</li>
-      <li>Metal Performance Shaders integration</li>
-    </ul>
-    ]]></description>
+<h2>Metal Shader Support</h2>
+<p>
+  Build stunning GPU shaders with full IDE power. Metal Shader Support delivers comprehensive Metal Shading
+  Language support — from intelligent code completion with 300+ documented keywords to real-time shader
+  preview and GPU profiling.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+  <li><b>Metal 3.2 &amp; 4.0 Support</b> — Full syntax highlighting for the latest Metal specifications</li>
+  <li><b>300+ Documented Keywords</b> — Context-aware completion with inline documentation</li>
+  <li><b>Performance Analyzer</b> — Complexity scoring and optimization hints for shader code</li>
+  <li><b>MPS Integration</b> — Metal Performance Shaders framework support</li>
+  <li><b>10 Live Templates</b> — Boilerplate snippets for common shader patterns</li>
+  <li><b>Code Folding &amp; Formatting</b> — Professional editing experience for Metal shaders</li>
+</ul>
+
+<h2>Why Metal Shader Support?</h2>
+<p>
+  Metal shader development deserves first-class IDE support. No more editing shaders in Xcode or plain
+  text — get the same productivity features you expect for Swift and Objective-C.
+</p>
+
+<h2>Free vs Pro</h2>
+<ul>
+  <li><b>Free:</b> Syntax highlighting, code completion, live templates, formatting</li>
+  <li><b>Pro:</b> Live shader preview (60 FPS), Metal debugger panel, GPU profiler integration, cross-platform transpiler (Enterprise), and texture preview</li>
+</ul>
+]]></description>
 
     <change-notes><![CDATA[
     <h3>Version 1.0.4 (November 2025) 🚀</h3>
