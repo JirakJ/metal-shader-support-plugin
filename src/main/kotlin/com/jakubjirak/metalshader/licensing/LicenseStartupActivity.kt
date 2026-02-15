@@ -5,14 +5,14 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.startup.ProjectActivity
+import com.intellij.openapi.startup.StartupActivity
 
-class LicenseStartupActivity : ProjectActivity {
-    
-    override suspend fun execute(project: Project) {
+class LicenseStartupActivity : StartupActivity.DumbAware {
+
+    override fun runActivity(project: Project) {
         val licenseManager = MetalLicenseManager.getInstance()
         val state = licenseManager.getState()
-        
+
         // Only show notification once per session for Free tier users
         if (state.tier == MetalLicenseManager.LicenseTier.FREE) {
             showFreeTierNotification(project)

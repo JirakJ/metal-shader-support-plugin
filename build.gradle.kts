@@ -38,10 +38,10 @@ tasks {
         sinceBuild.set("232")
         untilBuild.set("")
         version.set(project.version.toString())
-        
+
         // Convert version to release version format: 1.0.10 -> 10010
         val versionParts = project.version.toString().split(".")
-        val releaseVersion = String.format("%d%02d%02d", 
+        val releaseVersion = String.format("%d%02d%02d",
             versionParts[0].toInt(),
             versionParts[1].toInt(),
             versionParts[2].toInt()
@@ -49,10 +49,11 @@ tasks {
         changeNotes.set("""
             <h3>Version ${project.version} (November 2025)</h3>
             <ul>
-              <li><b>FIXED:</b> Deprecated API usage - Updated to modern IntelliJ Platform APIs</li>
-              <li><b>FIXED:</b> Template context type now uses new API</li>
-              <li><b>FIXED:</b> Live templates provider updated to recommended API</li>
-              <li><b>IMPROVED:</b> Better compatibility with IntelliJ IDEA 2024.2+</li>
+              <li><b>FIXED:</b> Unresolved method ServicesKt.serviceNotFoundError - Fixed service getInstance methods</li>
+              <li><b>FIXED:</b> NoSuchMethodError at runtime for MetalShaderPreviewService and MetalTranspilerService</li>
+              <li><b>FIXED:</b> Unresolved class ProjectActivity - Replaced with StartupActivity.DumbAware for better compatibility</li>
+              <li><b>FIXED:</b> NoSuchClassError at runtime for LicenseStartupActivity</li>
+              <li><b>IMPROVED:</b> Better compatibility with IntelliJ Platform 2023.2+</li>
             </ul>
         """.trimIndent())
         
