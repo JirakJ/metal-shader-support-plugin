@@ -147,9 +147,9 @@ tasks {
     }
 
     publishPlugin {
-        val publishToken = providers.gradleProperty("token")
+        
             .orElse(providers.environmentVariable("PUBLISH_TOKEN"))
-        token.set(publishToken)
+        token.set(System.getenv("PUBLISH_TOKEN"))
     }
 
     test {
