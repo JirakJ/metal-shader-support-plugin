@@ -4,109 +4,91 @@
     <vendor email="support@jakubjirak.com" url="https://jakubjirak.com">Jakub Jirák</vendor>
 
     <description><![CDATA[
-<h2>Metal Shader Support</h2>
+<h2>Metal Shader Support — Full Metal Shading Language IDE for JetBrains</h2>
+
 <p>
-  Build stunning GPU shaders with full IDE power. Metal Shader Support delivers comprehensive Metal Shading
-  Language support — from intelligent code completion with 300+ documented keywords to real-time shader
-  preview and GPU profiling.
+Build high-performance GPU shaders with full IDE power. Metal Shader Support delivers comprehensive Metal Shading Language support — from intelligent code completion with 300+ documented keywords to real-time shader preview and GPU profiling. Supports Metal 3.2 and Metal 4.0 for iOS, macOS, and visionOS development.
 </p>
 
-<h2>Key Features</h2>
+<h3>Language Support</h3>
 <ul>
-  <li><b>Metal 3.2 &amp; 4.0 Support</b> — Full syntax highlighting for the latest Metal specifications</li>
-  <li><b>300+ Documented Keywords</b> — Context-aware completion with inline documentation</li>
-  <li><b>Performance Analyzer</b> — Complexity scoring and optimization hints for shader code</li>
-  <li><b>MPS Integration</b> — Metal Performance Shaders framework support</li>
-  <li><b>10 Live Templates</b> — Boilerplate snippets for common shader patterns</li>
-  <li><b>Code Folding &amp; Formatting</b> — Professional editing experience for Metal shaders</li>
+  <li>Full Metal 3.2 and Metal 4.0 syntax highlighting</li>
+  <li>Keywords: kernel, vertex, fragment, device, threadgroup</li>
+  <li>Types: float4, texture2d, sampler, matrices, vectors</li>
+  <li>Attributes: [[texture(0)]], [[buffer(0)]], [[stage_in]]</li>
+  <li>300+ built-in functions with inline documentation</li>
+  <li>Raytracing and mesh shader support (Metal 4.0)</li>
 </ul>
 
-<h2>Why Metal Shader Support?</h2>
-<p>
-  Metal shader development deserves first-class IDE support. No more editing shaders in Xcode or plain
-  text — get the same productivity features you expect for Swift and Objective-C.
-</p>
-
-<h2>Free vs Pro</h2>
+<h3>Code Editing</h3>
 <ul>
-  <li><b>Free:</b> Syntax highlighting, code completion, live templates, formatting</li>
-  <li><b>Pro:</b> Live shader preview (60 FPS), Metal debugger panel, GPU profiler integration, cross-platform transpiler (Enterprise), and texture preview</li>
+  <li>Context-aware code completion with parameter hints</li>
+  <li>10 live templates for vertex, fragment, and compute shaders</li>
+  <li>Code folding, formatting, and structure view</li>
+  <li>Comment/uncomment, brace matching, quote handling</li>
+  <li>Find usages and documentation provider</li>
 </ul>
-]]></description>
+
+<h3>Error Detection and Analysis</h3>
+<ul>
+  <li>Real-time threadgroup size validation (max 1024 threads)</li>
+  <li>Texture access bounds checking</li>
+  <li>Attribute format validation</li>
+  <li>Vector swizzle validation</li>
+  <li>Performance inspection with optimization hints</li>
+</ul>
+
+<h3>Pro Features</h3>
+<ul>
+  <li>Live shader preview at 60 FPS in a dedicated tool window</li>
+  <li>Metal debugger panel with variable inspection</li>
+  <li>GPU profiler with cycle estimation and bottleneck detection</li>
+  <li>Shader optimizer with one-click apply</li>
+  <li>Shader complexity analyzer</li>
+</ul>
+
+<h3>Enterprise Features</h3>
+<ul>
+  <li>Cross-platform transpiler: Metal to SPIR-V, HLSL, and WGSL</li>
+  <li>Team collaboration features</li>
+  <li>CI/CD integration</li>
+</ul>
+
+<h3>Pricing</h3>
+<ul>
+  <li><b>Free:</b> Syntax highlighting, code completion, live templates, error detection, formatting</li>
+  <li><b>Pro ($49/year):</b> Live preview, debugger panel, GPU profiler, shader optimizer</li>
+  <li><b>Enterprise ($199/year):</b> Cross-platform transpiler, team collaboration, CI/CD integration</li>
+</ul>
+
+<h3>Requirements</h3>
+<ul>
+  <li>IntelliJ IDEA 2024.1+ / CLion 2024.1+ / AppCode 2024.1+</li>
+  <li>Java 21 or higher</li>
+  <li>macOS recommended (Metal is an Apple-only framework)</li>
+</ul>
+
+<h3>Support</h3>
+<ul>
+  <li>Issues: <a href="https://github.com/JirakJ/metal-shader-support-plugin/issues">GitHub Issues</a></li>
+  <li>Email: support@jakubjirak.com</li>
+  <li>Documentation: <a href="https://github.com/JirakJ/metal-shader-support-plugin/wiki">Wiki</a></li>
+</ul>
+    ]]></description>
 
     <change-notes><![CDATA[
-    <h3>Version 1.0.4 (November 2025) 🚀</h3>
-    <ul>
-      <li><b>NEW Pro Feature:</b> Live Shader Preview - Real-time inline shader rendering at 60 FPS</li>
-      <li><b>NEW Pro Feature:</b> Metal Debugger Panel - Visual debugging with variable inspection</li>
-      <li><b>NEW Pro Feature:</b> GPU Profiler - Advanced performance charts and analysis</li>
-      <li><b>NEW Enterprise Feature:</b> Cross-Platform Transpiler - Metal → SPIR-V/HLSL/WGSL</li>
-      <li><b>IMPROVED:</b> Tool window integration for preview and profiling</li>
-      <li><b>IMPROVED:</b> Real-time performance metrics and FPS counter</li>
-      <li>Added 2,000+ lines of Pro/Enterprise features</li>
-    </ul>
-    
-    <h3>Version 1.0.3 (November 2025) 🎯</h3>
-    <ul>
-      <li><b>NEW:</b> License menu in Tools → Metal Shader Support → License submenu</li>
-      <li><b>NEW:</b> License persistence - your license is saved and remembered</li>
-      <li><b>NEW:</b> License Information action - view current license status</li>
-      <li><b>NEW:</b> Deactivate License action - easily switch licenses</li>
-      <li><b>NEW:</b> Startup notifications - friendly reminders about tier status</li>
-      <li><b>IMPROVED:</b> Better license activation UI with pricing info</li>
-      <li><b>IMPROVED:</b> License stored in IDE preferences (survives updates)</li>
-    </ul>
-    
-    <h3>Version 1.0.2 (November 2025) 🚀</h3>
-    <ul>
-      <li><b>NEW Pro Feature:</b> Shader Profiler - GPU cycle estimation and bottleneck detection</li>
-      <li><b>NEW Pro Feature:</b> Advanced Shader Validator - comprehensive validation beyond syntax</li>
-      <li><b>NEW Pro Feature:</b> Shader Optimizer - automatic code optimizations with one-click apply</li>
-      <li><b>NEW Pro Feature:</b> Debug Helper - texture visualizers and assert helpers</li>
-      <li>Added 6 new Pro feature classes (1,800+ lines)</li>
-      <li>All Pro features integrated with license manager</li>
-    </ul>
-    
-    <h3>Version 1.0.1 (November 2025)</h3>
-    <ul>
-      <li>Updated license to proprietary</li>
-      <li>Changed minimum IDE version to 242 (2024.2+)</li>
-      <li>Added freemium licensing model</li>
-      <li>Updated vendor information</li>
-    </ul>
-    
-    <h3>Version 1.0.0 (November 2025)</h3>
-    <ul>
-      <li><b>Initial Release</b> - Full production-ready Metal shader support</li>
-      <li>Complete Metal 3.2 and Metal 4.0 language support</li>
-      <li>300+ keywords, types, and built-in functions</li>
-      <li>Smart code completion with documentation</li>
-      <li>Performance inspection with real-time hints</li>
-      <li>Shader complexity analyzer</li>
-      <li>Metal Performance Shaders (MPS) integration</li>
-      <li>10 live templates for rapid development</li>
-      <li>Structure view and navigation</li>
-      <li>1,500+ lines of example code</li>
-      <li>Support for .metal, .msl, .mm, .h, .hpp files</li>
-    </ul>
-    
-    <h4>Metal 4.0 Features (iOS 18+, macOS 15+):</h4>
-    <ul>
-      <li>Raytracing: acceleration structures, ray queries, custom intersections</li>
-      <li>Mesh Shaders: object shaders, mesh shaders, GPU-driven rendering</li>
-      <li>40+ new raytracing functions</li>
-      <li>30+ new types (atomic_float, long2-4, double2-4)</li>
-      <li>Complete attribute support [[payload]], [[ray_origin]], etc.</li>
-    </ul>
-    
-    <h4>Performance Tools:</h4>
-    <ul>
-      <li>Detect expensive operations (pow, sqrt, division)</li>
-      <li>Thread divergence warnings</li>
-      <li>Texture access optimization</li>
-      <li>Threadgroup memory analysis</li>
-      <li>Automatic optimization suggestions</li>
-    </ul>
+        <h3>What's New</h3>
+        <ul>
+            <li><b>Metal 3.2 and 4.0 Support</b> - Full syntax highlighting for the latest Metal specifications including raytracing and mesh shaders</li>
+            <li><b>Smart Code Completion</b> - 300+ documented keywords, types, and built-in functions with inline documentation</li>
+            <li><b>Real-Time Error Detection</b> - Threadgroup size validation, texture access checks, and attribute format validation</li>
+            <li><b>Performance Analyzer</b> - Shader complexity scoring with optimization hints for expensive operations</li>
+            <li><b>Live Shader Preview</b> - Real-time inline shader rendering at 60 FPS in a dedicated tool window</li>
+            <li><b>GPU Profiler</b> - GPU cycle estimation, bottleneck detection, and performance charts</li>
+            <li><b>Metal Performance Shaders</b> - Code completion and support for the MPS framework</li>
+            <li><b>10 Live Templates</b> - Quick boilerplate snippets for vertex, fragment, and compute shaders</li>
+            <li><b>Cross-Platform Transpiler</b> - Convert Metal shaders to SPIR-V, HLSL, and WGSL formats</li>
+        </ul>
     ]]></change-notes>
 
     <!-- FREEMIUM MARKETPLACE CONFIGURATION -->
