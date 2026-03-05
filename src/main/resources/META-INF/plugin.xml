@@ -65,23 +65,8 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
   <li>Documentation: <a href="https://github.com/JirakJ/metal-shader-support-plugin/wiki">Wiki</a></li>
 </ul>]]></description>
 
-    <change-notes><![CDATA[
-        <h3>What's New</h3>
-        <ul>
-            <li><b>Metal 3.2 and 4.0 Support</b> - Full syntax highlighting for the latest Metal specifications including raytracing and mesh shaders</li>
-            <li><b>Smart Code Completion</b> - 300+ documented keywords, types, and built-in functions with inline documentation</li>
-            <li><b>Real-Time Error Detection</b> - Threadgroup size validation, texture access checks, and attribute format validation</li>
-            <li><b>Performance Analyzer</b> - Shader complexity scoring with optimization hints for expensive operations</li>
-            <li><b>Live Shader Preview</b> - Real-time inline shader rendering at 60 FPS in a dedicated tool window</li>
-            <li><b>GPU Profiler</b> - GPU cycle estimation, bottleneck detection, and performance charts</li>
-            <li><b>Metal Performance Shaders</b> - Code completion and support for the MPS framework</li>
-            <li><b>10 Live Templates</b> - Quick boilerplate snippets for vertex, fragment, and compute shaders</li>
-            <li><b>Cross-Platform Transpiler</b> - Convert Metal shaders to SPIR-V, HLSL, and WGSL formats</li>
-        </ul>
-    ]]></change-notes>
-
     <!-- FREEMIUM MARKETPLACE CONFIGURATION -->
-    <product-descriptor code="PMETALSHADERSUP" release-date="20260215" release-version="20262" optional="true"/>
+    <product-descriptor code="PMETALSHADERSUP" release-date="20260305" release-version="20263" optional="true"/>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
