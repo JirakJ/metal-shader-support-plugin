@@ -147,8 +147,6 @@ tasks {
     }
 
     publishPlugin {
-        
-            .orElse(providers.environmentVariable("PUBLISH_TOKEN"))
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
 
