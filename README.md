@@ -4,17 +4,14 @@
 [![Platform](https://img.shields.io/badge/platform-IntelliJ-orange)](https://www.jetbrains.com/idea/)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
 [![Metal](https://img.shields.io/badge/Metal-4.0-red)](https://developer.apple.com/metal/)
-[![Model](https://img.shields.io/badge/model-Freemium-green)](https://jakubjirak.com)
 
 **Professional Metal Shading Language support for JetBrains IDEs.** Build high-performance GPU applications with full Metal 3.2 and Metal 4.0 support for iOS, macOS, and visionOS.
-
-**⚡ Freemium Plugin** - Basic features free forever, Pro features require license.
 
 © 2025 Jakub Jirák. All rights reserved.
 
 ## Features
 
-### ✨ Phase 1: MVP (Free Tier)
+### ✨ Core Features
 
 - **Syntax Highlighting** - Full Metal Shading Language 3.2 support
   - Keywords: `kernel`, `vertex`, `fragment`, `device`, `threadgroup`
@@ -90,14 +87,8 @@ kernel void grayscaleKernel(
 
 ## Roadmap
 
-### Phase 2: Pro Features ($49/year) - Q2 2024
-- [ ] Live shader preview (inline rendering)
-- [ ] Shader debugger integration
-- [ ] Performance profiler
-- [ ] GPU timing analysis
-
-### Phase 3: Enterprise ($199/year) - Q3 2024
-- [ ] SPIR-V/HLSL transpiler
+- [ ] Enhanced live shader preview
+- [ ] Advanced GPU debugger integration
 - [ ] Team collaboration features
 - [ ] CI/CD integration
 - [ ] Advanced analytics

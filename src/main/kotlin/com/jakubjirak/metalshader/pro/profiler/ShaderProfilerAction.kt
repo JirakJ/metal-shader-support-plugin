@@ -9,27 +9,9 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.wm.ToolWindowManager
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager.LicenseTier
 
 class ShaderProfilerAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
-        val licenseManager = MetalLicenseManager.getInstance()
-        val currentTier = licenseManager.getCurrentTier()
-        
-        if (currentTier == LicenseTier.FREE) {
-            Messages.showInfoMessage(
-                "Pro license required for GPU profiler.\n\n" +
-                "Upgrade to Pro ($49/year) to unlock:\n" +
-                "• Real-time GPU profiling\n" +
-                "• Performance metrics\n" +
-                "• Memory analysis\n" +
-                "• Optimization suggestions",
-                "Pro Feature"
-            )
-            return
-        }
-        
         val project = e.project ?: return
         
         // Open Metal Profiler tool window
@@ -48,7 +30,6 @@ class ShaderProfilerAction : AnAction() {
     }
     
     override fun update(e: AnActionEvent) {
-        val licenseManager = MetalLicenseManager.getInstance()
-        e.presentation.isEnabled = licenseManager.getCurrentTier() != LicenseTier.FREE
+        e.presentation.isEnabled = true
     }
 }

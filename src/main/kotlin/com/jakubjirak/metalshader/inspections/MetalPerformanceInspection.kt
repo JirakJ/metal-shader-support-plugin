@@ -5,15 +5,10 @@ import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiElementVisitor
 import com.jakubjirak.metalshader.language.MetalFile
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
 
 class MetalPerformanceInspection : LocalInspectionTool() {
     
     override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
-        // Pro feature - check license
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            return PsiElementVisitor.EMPTY_VISITOR
-        }
         return object : PsiElementVisitor() {
             override fun visitElement(element: PsiElement) {
                 super.visitElement(element)

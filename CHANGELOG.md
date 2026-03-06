@@ -36,14 +36,8 @@
 - MetalShaderValidator - advanced validation
 - MetalShaderOptimizer - automatic rewrites
 - MetalDebugHelper - debug instrumentation
-- All Pro features integrated with license manager
 
-### License Requirements
-- Pro features require active Pro license ($49/year)
-- Free tier: All basic features remain free
-- Activate: Tools → Metal → Activate License
-
-## [1.0.1] - 2025-11-16 📄 Licensing Update
+## [1.0.1] - 2025-11-16 📄 Update
 
 ### Changed
 - Updated license to proprietary (© 2025 Jakub Jirák)
@@ -51,10 +45,6 @@
 - Updated vendor information (support@jakubjirak.com)
 
 ### Added
-- Freemium licensing model implementation
-- License manager with persistent storage
-- License activation dialog
-- LICENSING.md documentation (200+ lines)
 - Automatic version increment script
 
 ## [1.0.0] - 2025-11-16 🎉 Initial Release
@@ -237,14 +227,12 @@ kernel void blur(...) {     // ⚡ Shows in Structure View
 
 ### 🏆 What's Next?
 
-**Phase 2 (Pro Features):**
-- [ ] Live shader preview
-- [ ] GPU debugger integration
-- [ ] Performance profiler
-- [ ] Shader optimization hints
+**Phase 2:**
+- [ ] Live shader preview enhancements
+- [ ] GPU debugger integration improvements
 
-**Phase 3 (Enterprise):**
-- [ ] SPIR-V/HLSL transpiler
+**Phase 3:**
+- [ ] SPIR-V/HLSL transpiler improvements
 - [ ] Team collaboration
 - [ ] CI/CD integration
 

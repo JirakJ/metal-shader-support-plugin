@@ -1,10 +1,7 @@
 package com.jakubjirak.metalshader.pro
 
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
-
 /**
  * Advanced shader validation and error detection
- * PRO FEATURE
  */
 class MetalShaderValidator {
     
@@ -38,10 +35,6 @@ class MetalShaderValidator {
     }
     
     fun validate(shaderCode: String): ValidationResult? {
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            return null
-        }
-        
         val errors = mutableListOf<ValidationError>()
         val warnings = mutableListOf<ValidationWarning>()
         val lines = shaderCode.lines()
