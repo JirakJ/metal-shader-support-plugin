@@ -198,6 +198,14 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
         <projectService serviceImplementation="com.jakubjirak.metalshader.pro.preview.MetalShaderPreviewService"/>
         <projectService serviceImplementation="com.jakubjirak.metalshader.enterprise.transpiler.MetalTranspilerService"/>
     
+        <projectService serviceImplementation="com.jakubjirak.metalshader.settings.MetalShaderSettings"/>
+
+        <projectConfigurable
+            parentId="tools"
+            instance="com.jakubjirak.metalshader.settings.MetalShaderSettingsConfigurable"
+            id="metal.shader.support.settings"
+            displayName="Metal Shader Support"/>
+
         <notificationGroup id="Metal Shader Support Feedback" displayType="BALLOON"/>
         <projectActivity implementation="com.jakubjirak.metalshader.feedback.FeedbackNotifier"/>
     </extensions>
