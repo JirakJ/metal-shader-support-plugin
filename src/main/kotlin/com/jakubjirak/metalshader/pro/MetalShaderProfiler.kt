@@ -1,11 +1,9 @@
 package com.jakubjirak.metalshader.pro
 
 import com.intellij.openapi.project.Project
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
 
 /**
  * Shader profiling and GPU timing estimation
- * PRO FEATURE
  */
 class MetalShaderProfiler {
     
@@ -37,10 +35,6 @@ class MetalShaderProfiler {
     }
     
     fun profileShader(shaderCode: String, project: Project?): ProfileResult? {
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            return null
-        }
-        
         var cycles = 0L
         val bottlenecks = mutableListOf<Bottleneck>()
         val recommendations = mutableListOf<String>()

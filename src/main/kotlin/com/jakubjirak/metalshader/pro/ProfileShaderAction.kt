@@ -8,27 +8,10 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
 import com.jakubjirak.metalshader.language.MetalFile
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
 
 class ProfileShaderAction : AnAction("Profile Shader Performance") {
     
     override fun actionPerformed(e: AnActionEvent) {
-        // Pro feature check
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            Messages.showInfoMessage(
-                e.project,
-                "Shader Profiler is a Pro feature.\n\n" +
-                        "Unlock with Pro license:\n" +
-                        "• GPU cycle estimation\n" +
-                        "• Bottleneck detection\n" +
-                        "• Performance recommendations\n" +
-                        "• Latency analysis\n\n" +
-                        "Contact: support@jakubjirak.com",
-                "Metal Shader Support - Pro Feature"
-            )
-            return
-        }
-        
         val project = e.project ?: return
         val file = e.getData(CommonDataKeys.PSI_FILE) as? MetalFile ?: return
         
@@ -71,9 +54,8 @@ class ProfileShaderAction : AnAction("Profile Shader Performance") {
     override fun update(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE)
         val isMetalFile = file is MetalFile
-        val isProEnabled = MetalLicenseManager.getInstance().isProFeatureEnabled()
         
-        e.presentation.isEnabled = isMetalFile && isProEnabled
+        e.presentation.isEnabled = isMetalFile
         e.presentation.isVisible = isMetalFile
     }
 }

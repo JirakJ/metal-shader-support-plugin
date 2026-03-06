@@ -65,9 +65,6 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
   <li>Documentation: <a href="https://github.com/JirakJ/metal-shader-support-plugin/wiki">Wiki</a></li>
 </ul>]]></description>
 
-    <!-- FREEMIUM MARKETPLACE CONFIGURATION -->
-    <product-descriptor code="PMETALSHADERSUP" release-date="20260305" release-version="20263" optional="true"/>
-
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
 
@@ -78,13 +75,6 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
     </applicationListeners>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- License Manager -->
-        <applicationService
-                serviceImplementation="com.jakubjirak.metalshader.licensing.MetalLicenseManager"/>
-        
-        <!-- Startup Activity for License Notifications -->
-        <postStartupActivity implementation="com.jakubjirak.metalshader.licensing.LicenseStartupActivity"/>
-        
         <!-- Notification Group -->
         <notificationGroup id="Metal Shader Support" displayType="BALLOON" isLogByDefault="false"/>
         <!-- File Type -->
@@ -217,56 +207,37 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
         <group id="Metal.Menu" text="Metal Shader Support" description="Metal shader tools" popup="true">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
             
-            <!-- License Management -->
-            <group id="Metal.LicenseGroup" text="License" description="License management" popup="true">
-                <action id="Metal.ActivateLicense"
-                        class="com.jakubjirak.metalshader.licensing.LicenseActivationAction"
-                        text="Activate License..."
-                        description="Activate Metal Shader Support Pro license">
-                </action>
-                <action id="Metal.LicenseInfo"
-                        class="com.jakubjirak.metalshader.licensing.LicenseInfoAction"
-                        text="License Information"
-                        description="View current license status">
-                </action>
-                <action id="Metal.DeactivateLicense"
-                        class="com.jakubjirak.metalshader.licensing.DeactivateLicenseAction"
-                        text="Deactivate License"
-                        description="Deactivate current license">
-                </action>
-            </group>
-            
             <separator/>
             
             <!-- Shader Tools -->
             <action id="Metal.AnalyzeComplexity"
                     class="com.jakubjirak.metalshader.actions.AnalyzeShaderComplexityAction"
-                    text="Analyze Shader Complexity (Pro)"
+                    text="Analyze Shader Complexity"
                     description="Analyze Metal shader performance and complexity">
             </action>
             <action id="Metal.ProfileShader"
                     class="com.jakubjirak.metalshader.pro.ProfileShaderAction"
-                    text="Profile Shader Performance (Pro)"
+                    text="Profile Shader Performance"
                     description="Estimate GPU cycles and identify bottlenecks">
             </action>
             <action id="Metal.ValidateShader"
                     class="com.jakubjirak.metalshader.pro.ValidateShaderAction"
-                    text="Validate Shader (Pro)"
+                    text="Validate Shader"
                     description="Advanced shader validation and error detection">
             </action>
             <action id="Metal.OptimizeShader"
                     class="com.jakubjirak.metalshader.pro.OptimizeShaderAction"
-                    text="Optimize Shader (Pro)"
+                    text="Optimize Shader"
                     description="Automatic shader optimization suggestions">
             </action>
             <action id="Metal.ProfilerNew"
                     class="com.jakubjirak.metalshader.pro.profiler.ShaderProfilerAction"
-                    text="GPU Profiler (Pro)"
+                    text="GPU Profiler"
                     description="Detailed GPU performance analysis">
             </action>
             <action id="Metal.Transpile"
                     class="com.jakubjirak.metalshader.enterprise.transpiler.TranspileAction"
-                    text="Transpile Shader (Enterprise)"
+                    text="Transpile Shader"
                     description="Convert Metal shaders to SPIR-V/HLSL/WGSL">
             </action>
         </group>

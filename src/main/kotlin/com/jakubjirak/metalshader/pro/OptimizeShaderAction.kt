@@ -6,28 +6,10 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.command.WriteCommandAction
 import com.intellij.openapi.ui.Messages
 import com.jakubjirak.metalshader.language.MetalFile
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
 
 class OptimizeShaderAction : AnAction("Optimize Shader") {
     
     override fun actionPerformed(e: AnActionEvent) {
-        // Pro feature check
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            Messages.showInfoMessage(
-                e.project,
-                "Shader Optimizer is a Pro feature.\n\n" +
-                        "Unlock with Pro license:\n" +
-                        "• Automatic optimization suggestions\n" +
-                        "• pow() → multiplication conversions\n" +
-                        "• Division → multiplication optimizations\n" +
-                        "• Float → half precision suggestions\n" +
-                        "• One-click apply optimizations\n\n" +
-                        "Contact: support@jakubjirak.com",
-                "Metal Shader Support - Pro Feature"
-            )
-            return
-        }
-        
         val project = e.project ?: return
         val file = e.getData(CommonDataKeys.PSI_FILE) as? MetalFile ?: return
         
@@ -79,9 +61,8 @@ class OptimizeShaderAction : AnAction("Optimize Shader") {
     override fun update(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE)
         val isMetalFile = file is MetalFile
-        val isProEnabled = MetalLicenseManager.getInstance().isProFeatureEnabled()
         
-        e.presentation.isEnabled = isMetalFile && isProEnabled
+        e.presentation.isEnabled = isMetalFile
         e.presentation.isVisible = isMetalFile
     }
 }

@@ -8,25 +8,9 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager.LicenseTier
 
 class TranspileAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
-        val licenseManager = MetalLicenseManager.getInstance()
-        
-        if (licenseManager.getCurrentTier() != LicenseTier.ENTERPRISE) {
-            Messages.showInfoMessage(
-                "Enterprise license required for shader transpilation.\n\n" +
-                "Upgrade to Enterprise ($199/year) to convert Metal shaders to:\n" +
-                "• SPIR-V (Vulkan)\n" +
-                "• HLSL (DirectX)\n" +
-                "• WGSL (WebGPU)",
-                "Enterprise Feature"
-            )
-            return
-        }
-        
         val file = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
         
         if (!file.name.endsWith(".metal") && !file.name.endsWith(".msl")) {
@@ -57,10 +41,9 @@ class TranspileAction : AnAction() {
     }
     
     override fun update(e: AnActionEvent) {
-        val licenseManager = MetalLicenseManager.getInstance()
-        e.presentation.isEnabled = licenseManager.getCurrentTier() == LicenseTier.ENTERPRISE
-        
         val file = e.getData(CommonDataKeys.VIRTUAL_FILE)
+        e.presentation.isEnabled = file != null && 
+            (file.name.endsWith(".metal") || file.name.endsWith(".msl"))
         e.presentation.isVisible = file != null && 
             (file.name.endsWith(".metal") || file.name.endsWith(".msl"))
     }

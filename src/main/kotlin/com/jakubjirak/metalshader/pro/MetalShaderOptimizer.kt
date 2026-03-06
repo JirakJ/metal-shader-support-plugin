@@ -1,10 +1,7 @@
 package com.jakubjirak.metalshader.pro
 
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
-
 /**
  * Automatic shader optimization suggestions and rewrites
- * PRO FEATURE
  */
 class MetalShaderOptimizer {
     
@@ -17,10 +14,6 @@ class MetalShaderOptimizer {
     )
     
     fun optimizeShader(shaderCode: String): List<Optimization>? {
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            return null
-        }
-        
         val optimizations = mutableListOf<Optimization>()
         val lines = shaderCode.lines()
         

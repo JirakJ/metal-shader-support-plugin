@@ -1,10 +1,7 @@
 package com.jakubjirak.metalshader.pro
 
-import com.jakubjirak.metalshader.licensing.MetalLicenseManager
-
 /**
  * Debug instrumentation for Metal shaders
- * PRO FEATURE
  */
 class MetalDebugHelper {
     
@@ -27,10 +24,6 @@ class MetalDebugHelper {
         shaderCode: String,
         debugVariables: List<String> = emptyList()
     ): DebugInstrumentation? {
-        if (!MetalLicenseManager.getInstance().isProFeatureEnabled()) {
-            return null
-        }
-        
         val lines = shaderCode.lines().toMutableList()
         val debugPoints = mutableListOf<DebugPoint>()
         var debugId = 0
