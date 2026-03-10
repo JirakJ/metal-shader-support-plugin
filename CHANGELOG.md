@@ -1,5 +1,22 @@
 # Metal Shader Support Plugin - Changelog
 
+## [2026.3.14] - 2026-03-10 🐛 Bug Fix
+
+### Fixed
+- **False positive duplicate binding warnings**: The annotator no longer reports
+  "Duplicate buffer binding indices detected" or "Duplicate texture binding indices
+  detected" when the same indices are reused across different shader functions
+  (`kernel`, `vertex`, `fragment`). In Metal, binding indices are scoped per
+  entry-point function, not globally — reusing indices across functions is valid
+  and standard practice per the Metal Shading Language specification.
+
+### Technical
+- Refactored `MetalAnnotator.checkAttributeFormat()` to scope duplicate binding
+  checks per-function using balanced parenthesis extraction instead of global regex
+- Extracted `findDuplicateBindings()` into a testable companion method
+- Added 9 unit tests covering per-function scoping, cross-function reuse, and the
+  exact reproduction case from the bug report
+
 ## [1.0.2] - 2025-11-16 🚀 Pro Features Release
 
 ### Added - Pro Features
