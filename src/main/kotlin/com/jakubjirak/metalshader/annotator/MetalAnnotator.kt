@@ -62,25 +62,10 @@ class MetalAnnotator : Annotator {
             ).range(element).create()
         }
 
-        // Check for duplicate buffer/texture bindings in same scope
-        val bufferPattern = Regex("""\[\[buffer\((\d+)\)\]\]""")
-        val texturePattern = Regex("""\[\[texture\((\d+)\)\]\]""")
-        
-        val bufferBindings = bufferPattern.findAll(text).map { it.groupValues[1] }.toList()
-        val textureBindings = texturePattern.findAll(text).map { it.groupValues[1] }.toList()
-
-        if (bufferBindings.size != bufferBindings.distinct().size) {
-            holder.newAnnotation(
-                HighlightSeverity.WARNING,
-                "Duplicate buffer binding indices detected"
-            ).range(element).create()
-        }
-
-        if (textureBindings.size != textureBindings.distinct().size) {
-            holder.newAnnotation(
-                HighlightSeverity.WARNING,
-                "Duplicate texture binding indices detected"
-            ).range(element).create()
+        // Check for duplicate buffer/texture bindings within each function scope
+        val duplicates = findDuplicateBindings(text)
+        for (dup in duplicates) {
+            holder.newAnnotation(HighlightSeverity.WARNING, dup).range(element).create()
         }
     }
 
@@ -110,6 +95,67 @@ class MetalAnnotator : Annotator {
                     "Vector swizzle cannot exceed 4 components"
                 ).range(element).create()
             }
+        }
+    }
+
+    companion object {
+        private val BUFFER_PATTERN = Regex("""\[\[buffer\((\d+)\)\]\]""")
+        private val TEXTURE_PATTERN = Regex("""\[\[texture\((\d+)\)\]\]""")
+        private val FUNCTION_START = Regex("""(?:kernel|vertex|fragment)\s+[\w<>]+\s+\w+\s*\(""")
+
+        /**
+         * Finds duplicate buffer/texture binding indices scoped per shader function.
+         *
+         * In Metal, binding indices are scoped per entry-point function (kernel, vertex,
+         * fragment), not globally. Reusing the same index across different functions is
+         * valid and standard practice per the Metal Shading Language specification.
+         *
+         * @return list of warning messages for functions with duplicate bindings
+         */
+        fun findDuplicateBindings(text: String): List<String> {
+            val warnings = mutableListOf<String>()
+
+            val functionBodies = extractFunctionSignatures(text)
+            for (funcSig in functionBodies) {
+                val bufferBindings = BUFFER_PATTERN.findAll(funcSig).map { it.groupValues[1] }.toList()
+                val textureBindings = TEXTURE_PATTERN.findAll(funcSig).map { it.groupValues[1] }.toList()
+
+                if (bufferBindings.size != bufferBindings.distinct().size) {
+                    warnings.add("Duplicate buffer binding indices detected")
+                }
+
+                if (textureBindings.size != textureBindings.distinct().size) {
+                    warnings.add("Duplicate texture binding indices detected")
+                }
+            }
+
+            return warnings
+        }
+
+        /**
+         * Extracts the full parameter list of each shader function, handling nested
+         * parentheses from attribute annotations like [[buffer(0)]].
+         */
+        private fun extractFunctionSignatures(text: String): List<String> {
+            val signatures = mutableListOf<String>()
+
+            for (match in FUNCTION_START.findAll(text)) {
+                val startIdx = match.range.last + 1
+                var depth = 1
+                var i = startIdx
+                while (i < text.length && depth > 0) {
+                    when (text[i]) {
+                        '(' -> depth++
+                        ')' -> depth--
+                    }
+                    i++
+                }
+                if (depth == 0) {
+                    signatures.add(text.substring(match.range.first, i))
+                }
+            }
+
+            return signatures
         }
     }
 }
