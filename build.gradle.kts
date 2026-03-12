@@ -140,6 +140,10 @@ tasks {
         """.trimIndent())
     }
 
+    runPluginVerifier {
+        ideVersions.set(listOf("IC-2024.2.5", "IC-2024.3", "IC-2025.1.3"))
+    }
+
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
         privateKey.set(System.getenv("PRIVATE_KEY"))
