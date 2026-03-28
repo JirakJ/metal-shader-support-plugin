@@ -1,5 +1,10 @@
 # Metal Shader Support Plugin - Changelog
 
+## [2026.3.16] - 2026-03-28
+
+### Added
+- **Freemium licensing** — Added `product-descriptor` for JetBrains Marketplace freemium model (code: `PMETALSHADERSUP`)
+
 ## [2026.3.14] - 2026-03-10 🐛 Bug Fix
 
 ### Fixed
