@@ -68,6 +68,8 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
 
+    <product-descriptor code="PMETALSHADERSUP" release-date="20260328" release-version="20264" optional="true"/>
+
     <!-- Dynamic Plugin Listeners - NO RESTART REQUIRED! -->
     <applicationListeners>
         <listener class="com.jakubjirak.metalshader.listeners.PluginLifecycleListener"
