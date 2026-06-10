@@ -1,5 +1,11 @@
 # Metal Shader Support Plugin - Changelog
 
+## [2026.4.2] - 2026-06-10
+
+### Changed
+- Removed unused internal-API import (`TemplateSettings`) from the live templates
+  provider — IntelliJ Platform internal-API compliance.
+
 ## [2026.4.1] - 2026-03-28
 
 ### Added
