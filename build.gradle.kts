@@ -80,7 +80,10 @@ tasks {
         """.trimIndent())
         
         changeNotes.set("""
-            <h3>Version ${project.version} (November 2025) 🚀</h3>
+            <h3>Version ${project.version} 🚀</h3>
+            <ul>
+                <li><b>MAINTENANCE:</b> IntelliJ Platform internal-API compliance cleanup (live templates provider)</li>
+            </ul>
             <p><b>Professional Metal Shading Language support for Apple platform development</b></p>
             
             <h4>✨ Core Features</h4>

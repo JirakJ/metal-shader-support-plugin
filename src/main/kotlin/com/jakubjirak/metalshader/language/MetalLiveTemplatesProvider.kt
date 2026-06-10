@@ -1,7 +1,5 @@
 package com.jakubjirak.metalshader.language
 
-import com.intellij.codeInsight.template.impl.TemplateSettings
-
 class MetalLiveTemplatesProvider {
     companion object {
         fun loadTemplates() {
