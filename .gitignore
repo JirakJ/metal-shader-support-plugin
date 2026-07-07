@@ -16,3 +16,4 @@ gradle-app.setting
 
 # Plugin
 /src/main/resources/META-INF/pluginIcon.svg
+.env
