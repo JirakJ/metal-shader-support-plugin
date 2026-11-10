@@ -12,19 +12,6 @@
 6. Click **OK**
 7. **Restart IDE**
 
-### Step 2: Activate License (Optional)
-
-**For Pro/Enterprise Features:**
-
-1. Go to **Tools → Metal Shader Support → License → Activate License...**
-2. Enter demo key:
-   - **Pro**: `METAL-PRO-1234-5678-ABCD`
-   - **Enterprise**: `METAL-ENT-9999-8888-WXYZ`
-3. Click **Activate**
-4. Enjoy all features! 🎉
-
----
-
 ## Quick Test (1 minute)
 
 ### Create Your First Metal Shader
@@ -85,7 +72,7 @@ ker
 ### 3. GPU Profiler (Pro Feature)
 
 1. Open your `.metal` file
-2. Go to **Tools → Metal Shader Support → GPU Profiler (Pro)**
+2. Go to **Tools → Metal Shader Support → GPU Profiler**
 3. See detailed performance metrics:
    - GPU timing
    - Occupancy analysis
@@ -94,10 +81,10 @@ ker
 
 ---
 
-### 4. Cross-Platform Transpiler (Enterprise)
+### 4. Cross-Platform Transpiler
 
 1. Open your `.metal` file
-2. Go to **Tools → Metal Shader Support → Cross-Platform Transpiler (Enterprise)**
+2. Go to **Tools → Metal Shader Support → Cross-Platform Transpiler**
 3. Select target:
    - **SPIR-V** → Vulkan
    - **HLSL** → DirectX
@@ -162,14 +149,14 @@ Open these files to see:
 ### Task: Profile Performance
 
 1. Open shader file
-2. **Tools → GPU Profiler (Pro)**
+2. **Tools → GPU Profiler**
 3. Review metrics
 4. Apply suggestions
 
 ### Task: Convert to Vulkan
 
 1. Open Metal shader
-2. **Tools → Transpiler (Enterprise)**
+2. **Tools → Transpiler**
 3. Select **SPIR-V**
 4. Click **Transpile**
 5. **Save Output**
@@ -212,10 +199,6 @@ New File → choose **Metal Shader**, **Metal Kernel**, or **Metal Header**
 
 ### Features Not Appearing?
 
-**Check License:**
-- Go to **Tools → Metal Shader Support → License → License Information**
-- Activate Pro/Enterprise key if needed
-
 **Restart IDE:**
 - Sometimes features need restart to activate
 
@@ -232,13 +215,8 @@ New File → choose **Metal Shader**, **Metal Kernel**, or **Metal Header**
 
 ### Learn More
 - Read **METAL4_FEATURES.md** for Metal 4.0 raytracing
-- Check **PRO_FEATURES.md** for detailed feature docs
+- Check **FEATURES_OVERVIEW.md** for detailed feature docs
 - Explore example shaders in `examples/` folder
-
-### Get Pro License
-- Visit: https://metal-shader-plugin.com (coming soon)
-- Email: support@jakubjirak.com
-- Pricing: $49/year (Pro), $199/year (Enterprise)
 
 ### Join Community
 - Share your shaders
@@ -296,17 +274,3 @@ kernel void gaussianBlur(
 - Attach log file if possible
 
 ---
-
-## License
-
-Copyright (c) 2025 Jakub Jirák. All rights reserved.
-
-**Free Tier**: Basic features, unlimited use  
-**Pro Tier**: $49/year, all advanced features  
-**Enterprise**: $199/year, transpiler + support  
-
----
-
-**🚀 Happy Metal Shader Coding!**
-
-Version 1.0.6 | Built with ❤️ by Jakub Jirák

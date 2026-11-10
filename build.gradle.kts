@@ -39,23 +39,6 @@ tasks {
         untilBuild.set("")
         version.set(project.version.toString())
 
-        // Convert version to release version format: 1.0.10 -> 10010
-        val versionParts = project.version.toString().split(".")
-        val releaseVersion = String.format("%d%02d%02d",
-            versionParts[0].toInt(),
-            versionParts[1].toInt(),
-            versionParts[2].toInt()
-        )
-        changeNotes.set("""
-            <h3>Version ${project.version} (November 2025)</h3>
-            <ul>
-              <li><b>FIXED:</b> Unresolved method ServicesKt.serviceNotFoundError - Fixed service getInstance methods</li>
-              <li><b>FIXED:</b> NoSuchMethodError at runtime for MetalShaderPreviewService and MetalTranspilerService</li>
-              <li><b>FIXED:</b> Unresolved class ProjectActivity - Replaced with StartupActivity.DumbAware for better compatibility</li>
-              <li><b>FIXED:</b> NoSuchClassError at runtime for LicenseStartupActivity</li>
-              <li><b>IMPROVED:</b> Better compatibility with IntelliJ Platform 2023.2+</li>
-            </ul>
-        """.trimIndent())
         
         pluginDescription.set("""
             <h1>Metal Shader Support</h1>
@@ -80,7 +63,12 @@ tasks {
         """.trimIndent())
         
         changeNotes.set("""
-            <h3>Version ${project.version} 🚀</h3>
+            <h3>2026.8.0</h3>
+            <ul>
+                <li>The plugin is now completely free — all features unlocked, no license needed.</li>
+                <li>Source code is now open source under Apache-2.0: https://github.com/JirakJ/metal-shader-support-plugin</li>
+            </ul>
+            <h3>Version 2026.4.2</h3>
             <ul>
                 <li><b>MAINTENANCE:</b> IntelliJ Platform internal-API compliance cleanup (live templates provider)</li>
             </ul>
@@ -115,7 +103,7 @@ tasks {
                 <li>.h, .hpp - Metal header files</li>
             </ul>
             
-            <h4>⚡ Pro Features (Freemium)</h4>
+            <h4>⚡ Advanced Features</h4>
             <ul>
                 <li><b>Shader Complexity Analyzer</b> - GPU cycle estimation and bottleneck detection</li>
                 <li><b>Advanced Validator</b> - Comprehensive shader validation beyond syntax</li>
@@ -124,7 +112,7 @@ tasks {
                 <li><b>Debug Panel</b> - Visual debugging with variable inspection</li>
             </ul>
             
-            <h4>🏢 Enterprise Features</h4>
+            <h4>🔁 Cross-Platform</h4>
             <ul>
                 <li><b>Cross-Platform Transpiler</b> - Convert Metal → SPIR-V/HLSL/WGSL</li>
             </ul>
