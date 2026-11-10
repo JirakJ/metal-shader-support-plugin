@@ -1,13 +1,13 @@
 # Metal Shader Support Plugin
 
-[![Version](https://img.shields.io/badge/version-1.0.1-blue)](https://jakubjirak.com)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE) ![Version](https://img.shields.io/badge/version-2026.8.0-green)
+
+> **Free & open source.** Since 2026.8.0 the plugin is completely free — every feature is unlocked for everyone, no license needed — and the source code is available under the Apache License 2.0.
+
 [![Platform](https://img.shields.io/badge/platform-IntelliJ-orange)](https://www.jetbrains.com/idea/)
-[![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)
 [![Metal](https://img.shields.io/badge/Metal-4.0-red)](https://developer.apple.com/metal/)
 
 **Professional Metal Shading Language support for JetBrains IDEs.** Build high-performance GPU applications with full Metal 3.2 and Metal 4.0 support for iOS, macOS, and visionOS.
-
-© 2025 Jakub Jirák. All rights reserved.
 
 ## Features
 
@@ -117,25 +117,11 @@ The plugin will be built to `build/distributions/metal-shader-support-plugin-*.z
 ./gradlew test
 ```
 
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/metal-shader-support-plugin/issues)
 - **Email**: support@metalshader.dev
 - **Documentation**: [Wiki](https://github.com/yourusername/metal-shader-support-plugin/wiki)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
@@ -148,3 +134,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Made with ❤️ for the Metal developer community**
 
 *Perfect for iOS/macOS game development, GPU compute, and video processing*
+
+## Contributing
+
+Issues and pull requests are welcome at https://github.com/JirakJ/metal-shader-support-plugin.
+
+## License
+
+Copyright 2026 Jakub Jirák. Licensed under the [Apache License, Version 2.0](LICENSE).

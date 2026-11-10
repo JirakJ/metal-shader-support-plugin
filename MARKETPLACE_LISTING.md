@@ -32,42 +32,6 @@
 
 ### ✨ Key Features
 
-#### 🆓 Free Tier
-
-- 🎨 **Syntax Highlighting** — Full Metal 3.2 language support with semantic coloring
-- 🧠 **Code Completion** — IntelliSense-powered completions for Metal types, functions, and attributes
-- ⚡ **Real-time Error Detection** — Catch shader errors as you type
-- 💬 **Comment/Uncomment** — Standard toggle support for line and block comments
-- 🔗 **Brace Matching** — Automatic bracket and parenthesis matching
-- 📝 **Live Templates** — Pre-built snippets for common shader patterns
-- 📁 **File Support** — `.metal`, `.msl`, `.mm`, `.h`, `.hpp` extensions recognized
-
-#### ⭐ Pro Tier — $49/year
-
-- 👁️ **Live Shader Preview** — Inline rendering at 60 FPS directly in the editor
-- 🐛 **Metal Debugger Panel** — Integrated shader debugger
-- 📈 **GPU Profiler** — Performance profiling with GPU timing analysis
-- 🖼️ **Texture Preview** — Visual texture inspection in the IDE
-
-#### 🏢 Enterprise Tier — $199/year
-
-- 🔄 **Cross-platform Transpiler** — Metal → SPIR-V / HLSL / WGSL conversion
-- 👥 **Team Collaboration** — Shared shader libraries and configurations
-- 🔧 **CI/CD Integration** — Headless shader compilation and validation
-- 📊 **Advanced Analytics** — Shader complexity and performance metrics
-
----
-
-### 💰 Pricing Model
-
-| Tier           | Price        | Highlights                                      |
-|----------------|--------------|--------------------------------------------------|
-| **Free**       | $0           | Syntax highlighting, completion, error detection  |
-| **Pro**        | $49/year     | Live preview, debugger, GPU profiler              |
-| **Enterprise** | $199/year    | Transpiler, team collaboration, CI/CD             |
-
----
-
 ### 🎯 Perfect For
 
 - **iOS/macOS developers** writing Metal shaders in JetBrains IDEs
@@ -92,7 +56,7 @@
 2. **Open** or create a `.metal` file — syntax highlighting activates automatically
 3. **Start typing** to see Metal-aware code completion suggestions
 4. **Use live templates** — type common abbreviations and expand with Tab
-5. **Upgrade to Pro** for live shader preview and GPU profiling
+5. Open the **live shader preview** and **GPU profiler**
 
 ---
 
@@ -101,11 +65,11 @@
 1. **Syntax Highlighting** — Metal shader code with full semantic coloring in the editor
 2. **Code Completion** — IntelliSense dropdown showing Metal types, functions, and attributes
 3. **Error Detection** — Real-time inline error markers for invalid Metal syntax
-4. **Live Shader Preview (Pro)** — 60 FPS inline rendering of a fragment shader
-5. **GPU Profiler (Pro)** — Performance profiling panel with GPU timing breakdown
-6. **Metal Debugger Panel (Pro)** — Step-through shader debugging interface
-7. **Texture Preview (Pro)** — Visual texture inspector embedded in the editor
-8. **Transpiler Output (Enterprise)** — Side-by-side Metal to SPIR-V conversion view
+4. **Live Shader Preview** — 60 FPS inline rendering of a fragment shader
+5. **GPU Profiler** — Performance profiling panel with GPU timing breakdown
+6. **Metal Debugger Panel** — Step-through shader debugging interface
+7. **Texture Preview** — Visual texture inspector embedded in the editor
+8. **Transpiler Output** — Side-by-side Metal to SPIR-V conversion view
 
 ---
 
@@ -159,12 +123,9 @@
 - [ ] Screenshots (1280×800 minimum) captured for all key features
 - [ ] Short description within 255-character limit
 - [ ] Full description reviewed and proofread
-- [ ] Pricing tiers configured in JetBrains Marketplace portal
 - [ ] Product descriptor code `PMETALSHADERSUP` verified
 - [ ] Plugin signed with JetBrains Marketplace certificate
-- [ ] License agreement (EULA) uploaded
 - [ ] CHANGELOG.md up to date with latest version notes
 - [ ] Compatibility tested on minimum build (232)
-- [ ] Free / Pro / Enterprise feature gating verified
 - [ ] Metal 3.2 syntax coverage validated
 - [ ] Support email monitored and responsive

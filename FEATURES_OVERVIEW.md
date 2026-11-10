@@ -1,44 +1,43 @@
 # Metal Shader Support Plugin - Features Overview
 
 **Version:** 1.0.6  
-**Copyright:** © 2025 Jakub Jirák - Proprietary Software
 
 ---
 
 ## 📊 Feature Matrix
 
-| Feature | Free | Pro ($49/yr) | Enterprise ($199/yr) |
-|---------|------|--------------|---------------------|
+| Feature | Included |
+|---------|----------|
 | **Language Support** |
-| Syntax Highlighting | ✅ | ✅ | ✅ |
-| Code Completion (300+ items) | ✅ | ✅ | ✅ |
-| Error Detection | ✅ | ✅ | ✅ |
-| Live Templates | ✅ | ✅ | ✅ |
-| Metal 4.0 Support | ✅ | ✅ | ✅ |
+| Syntax Highlighting | ✅ |
+| Code Completion (300+ items) | ✅ |
+| Error Detection | ✅ |
+| Live Templates | ✅ |
+| Metal 4.0 Support | ✅ |
 | **Development Tools** |
-| Structure View | ✅ | ✅ | ✅ |
-| Find Usages | ✅ | ✅ | ✅ |
-| Code Folding | ✅ | ✅ | ✅ |
-| Brace Matching | ✅ | ✅ | ✅ |
-| **Pro Features** |
-| Live Shader Preview | ❌ | ✅ | ✅ |
-| Metal Debugger Panel | ❌ | ✅ | ✅ |
-| GPU Profiler | ❌ | ✅ | ✅ |
-| Shader Complexity Analyzer | ❌ | ✅ | ✅ |
-| Shader Validator | ❌ | ✅ | ✅ |
-| Shader Optimizer | ❌ | ✅ | ✅ |
-| Performance Inspection | ❌ | ✅ | ✅ |
-| **Enterprise Features** |
-| Cross-Platform Transpiler | ❌ | ❌ | ✅ |
-| SPIR-V Export (Vulkan) | ❌ | ❌ | ✅ |
-| HLSL Export (DirectX) | ❌ | ❌ | ✅ |
-| WGSL Export (WebGPU) | ❌ | ❌ | ✅ |
-| Team Collaboration | ❌ | ❌ | ✅ |
-| Priority Support | ❌ | ❌ | ✅ |
+| Structure View | ✅ |
+| Find Usages | ✅ |
+| Code Folding | ✅ |
+| Brace Matching | ✅ |
+| **Advanced Tools** |
+| Live Shader Preview | ✅ |
+| Metal Debugger Panel | ✅ |
+| GPU Profiler | ✅ |
+| Shader Complexity Analyzer | ✅ |
+| Shader Validator | ✅ |
+| Shader Optimizer | ✅ |
+| Performance Inspection | ✅ |
+| **Cross-Platform & Team** |
+| Cross-Platform Transpiler | ✅ |
+| SPIR-V Export (Vulkan) | ✅ |
+| HLSL Export (DirectX) | ✅ |
+| WGSL Export (WebGPU) | ✅ |
+| Team Collaboration | ✅ |
+| Priority Support | ✅ |
 
 ---
 
-## 🎨 Live Shader Preview (Pro)
+## 🎨 Live Shader Preview
 
 ### Description
 Real-time shader visualization directly in your IDE, similar to ShaderToy but integrated into your development workflow.
@@ -71,7 +70,7 @@ Real-time shader visualization directly in your IDE, similar to ShaderToy but in
 
 ---
 
-## 🐛 Metal Debugger Panel (Pro)
+## 🐛 Metal Debugger Panel
 
 ### Description
 Visual debugging interface for Metal shaders with variable inspection and GPU state monitoring.
@@ -111,7 +110,7 @@ kernel void myKernel(uint2 gid [[thread_position_in_grid]]) {
 
 ---
 
-## 📊 GPU Profiler (Pro)
+## 📊 GPU Profiler
 
 ### Description
 Advanced performance analysis tool with real-time charts and optimization recommendations.
@@ -152,7 +151,7 @@ Occupancy: 87%        ← Well optimized
 
 ---
 
-## 🌐 Cross-Platform Transpiler (Enterprise)
+## 🌐 Cross-Platform Transpiler
 
 ### Description
 Convert Metal shaders to other GPU languages for multi-platform deployment.
@@ -199,7 +198,7 @@ fn process(@builtin(global_invocation_id) gid: vec3<u32>) { }
 
 ---
 
-## 🔍 Shader Complexity Analyzer (Pro)
+## 🔍 Shader Complexity Analyzer
 
 ### Description
 Analyze shader performance characteristics and estimate GPU cycles.
@@ -228,7 +227,7 @@ Analyze shader performance characteristics and estimate GPU cycles.
 
 ---
 
-## ✅ Shader Validator (Pro)
+## ✅ Shader Validator
 
 ### Description
 Comprehensive validation beyond basic syntax checking.
@@ -256,7 +255,7 @@ Comprehensive validation beyond basic syntax checking.
 
 ---
 
-## ⚡ Shader Optimizer (Pro)
+## ⚡ Shader Optimizer
 
 ### Description
 Automatic code optimization suggestions with one-click apply.
@@ -310,15 +309,6 @@ threadgroup float4 data[256]; // Vectorized
 4. Select downloaded ZIP file
 5. Restart IDE
 
-### License Activation
-1. Go to: Tools → Metal Shader Support → License → Activate License
-2. Enter license key:
-   - Pro: `METAL-PRO-XXXX-XXXX-XXXX`
-   - Enterprise: `METAL-ENT-XXXX-XXXX-XXXX`
-3. License is saved and persists across IDE restarts
-
----
-
 ## 🎯 Target Audience
 
 ### Primary Users
@@ -353,7 +343,7 @@ Write shader → Compile in Xcode → Run app → See result → Repeat
 Time per iteration: 2-5 minutes
 ```
 
-### With Plugin (Pro)
+### With Plugin
 ```
 Write shader → See preview immediately → Iterate
 Time per iteration: < 1 second
@@ -384,43 +374,16 @@ Speed up: 120-300x faster
 
 ---
 
-## 💰 Pricing
-
-### Individual Licenses
-- **Free:** $0 - Basic features forever
-- **Pro:** $49/year - Professional development tools
-- **Enterprise:** $199/year - Team & cross-platform features
-
-### Volume Licensing
-- **Site License:** $2,999/year for 50 seats
-- **Custom:** Contact for teams > 50 developers
-
-### Educational Discounts
-- 50% off Pro/Enterprise for students/teachers
-- Free Pro licenses for open-source projects
-
----
-
 ## 📞 Contact & Support
 
 **Developer:** Jakub Jirák  
 **Email:** support@jakubjirak.com  
-**License Sales:** support@jakubjirak.com  
 
-**Response Time:**
-- Free: Best effort (48-72 hours)
-- Pro: 24-hour business hours
-- Enterprise: 4-hour priority support
+**Issues:** https://github.com/JirakJ/metal-shader-support-plugin/issues
 
 ---
 
 ## 📜 Legal
-
-Copyright © 2025 Jakub Jirák. All rights reserved.
-
-This software and its source code are proprietary and confidential. Unauthorized copying, modification, distribution, or reverse engineering of this software, via any medium, is strictly prohibited.
-
-You are granted a non-exclusive, non-transferable license to use this software only in accordance with the terms agreed upon at the time of purchase or download.
 
 ---
 

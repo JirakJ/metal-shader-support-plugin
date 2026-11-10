@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2025 Jakub Jirák. All rights reserved.
- * This software and its source code are proprietary and confidential.
+ * Copyright (c) 2025 Jakub Jirák.
+ * Licensed under the Apache License, Version 2.0. See LICENSE for details.
  */
 package com.jakubjirak.metalshader.enterprise.transpiler
 

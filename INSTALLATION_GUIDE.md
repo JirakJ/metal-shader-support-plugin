@@ -29,27 +29,6 @@ cd /Users/jirakj/work/metal-shader-support-plugin
 3. Type `texture.` to trigger code completion
 4. Check menu: Tools → Metal Shader Support
 
-### 3. Activate License (Optional)
-
-**Free Tier**
-- No license needed! All basic features work out of the box
-
-**Pro Tier ($49/year)**
-```
-1. Tools → Metal Shader Support → License → Activate License
-2. Enter: METAL-PRO-1234-5678-ABCD
-3. Click "Activate"
-4. See pro-license.txt for details
-```
-
-**Enterprise Tier ($199/year)**
-```
-1. Tools → Metal Shader Support → License → Activate License
-2. Enter: METAL-ENT-9999-8888-WXYZ
-3. Click "Activate"  
-4. See enterprise-license.txt for details
-```
-
 ## Feature Overview
 
 ### ✅ Free Features (Always Available)
@@ -81,48 +60,6 @@ cd /Users/jirakj/work/metal-shader-support-plugin
   - Complexity analyzer
   - Optimization hints
   - Memory warnings
-
-### 🔒 Pro Features (Requires Pro License)
-
-- **Live Shader Preview**
-  - Real-time rendering
-  - Hot-reload on code changes
-  - FPS counter
-  - Performance metrics
-
-- **GPU Profiler**
-  - Cycle estimation
-  - Memory bandwidth
-  - Occupancy calculator
-  - Bottleneck detection
-
-- **Advanced Validator**
-  - Beyond syntax checking
-  - GPU compatibility
-  - Best practices
-
-- **Shader Optimizer**
-  - Auto-vectorization
-  - Code simplification
-  - One-click fixes
-
-- **Debug Helper**
-  - Texture visualizers
-  - Assert helpers
-  - Debug overlays
-
-### 🔐 Enterprise Features (Requires Enterprise License)
-
-- **Shader Transpiler**
-  - Metal → SPIR-V (Vulkan)
-  - Metal → HLSL (DirectX)
-  - Metal → WGSL (WebGPU)
-  - One-click conversion
-
-- **Team Features**
-  - Shader library management
-  - Performance benchmarks
-  - CI/CD integration
 
 ## File Type Support
 
@@ -205,7 +142,7 @@ MPSMatrixMultiplication
 3. Review performance report
 4. Follow optimization suggestions
 
-### 4. Transpile to Other Languages (Enterprise)
+### 4. Transpile to Other Languages
 
 1. Open `.metal` file
 2. Tools → Metal Shader Support → Transpile Shader
@@ -228,46 +165,22 @@ Solution 2: Right-click file → Override File Type → Metal
 Solution 3: Restart IDE
 ```
 
-### License Not Activating
-```
-Solution 1: Check license key format (METAL-XXX-XXXX-XXXX-XXXX)
-Solution 2: Verify no extra spaces
-Solution 3: Deactivate old license first
-Solution 4: Check: Tools → Metal Shader Support → License Information
-```
-
-### Features Not Enabled After License
-```
-Solution 1: License should activate without restart
-Solution 2: Check license tier: Tools → License Information
-Solution 3: Reopen menus to see enabled items
-Solution 4: If still disabled, restart IDE once
-```
-
 ## Getting Help
 
 ### Documentation
 - README.md - Project overview
-- VERSION_1.0.8_SUMMARY.md - Latest changes
+- CHANGELOG.md - Latest changes
 - METAL4_FEATURES.md - Metal 4.0 support
-- PRO_FEATURES.md - Pro tier details
 
 ### Support
 - **Email**: support@jakubjirak.com
 - **Issues**: Include plugin version (1.0.8) and IDE version
-- **License Problems**: Send license key and error message
-
-### License Purchase
-- **Pro**: $49/year - Perfect for individual developers
-- **Enterprise**: $199/year - Team features + transpiler
-- **Contact**: support@jakubjirak.com
 
 ## Next Steps
 
 1. ✅ Install plugin
 2. ✅ Test with example Metal file
-3. ✅ Activate license (if purchased)
-4. 📖 Read FEATURES_OVERVIEW.md
+3. 📖 Read FEATURES_OVERVIEW.md
 5. 🎯 Check out examples/ directory
 6. 💡 Try code templates (type `kernel` + Tab)
 
@@ -279,7 +192,6 @@ Solution 4: If still disabled, restart IDE once
 - 300+ Metal keywords and functions
 - 50+ MPS class definitions
 - Complete Metal 4.0 support
-- Freemium licensing system
 - Dynamic plugin loading (no restart!)
 
 ### Build Info
@@ -287,7 +199,7 @@ Solution 4: If still disabled, restart IDE once
 - Build Date: November 16, 2025
 - Package: com.jakubjirak.metalshader
 - Size: 1.8 MB
-- License: Proprietary
+- License: Apache-2.0
 
 ---
 
@@ -297,4 +209,3 @@ Install the plugin and open any `.metal` file to see it in action! 🚀
 **Questions?**
 Email: support@jakubjirak.com
 
-**Copyright © 2025 Jakub Jirák. All rights reserved.**
