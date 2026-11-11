@@ -126,7 +126,7 @@ git push origin feature/your-feature-name
 
 ## Reporting Bugs
 
-Use the [GitHub Issues](https://github.com/yourusername/metal-shader-support-plugin/issues) with:
+Use the [GitHub Issues](https://github.com/JirakJ/metal-shader-support-plugin/issues) with:
 
 - Clear title
 - Steps to reproduce
@@ -144,7 +144,7 @@ Open an issue with:
 
 ## Questions?
 
-- Open a [Discussion](https://github.com/yourusername/metal-shader-support-plugin/discussions)
-- Email: support@metalshader.dev
+- Open a [Discussion](https://github.com/JirakJ/metal-shader-support-plugin/discussions)
+- Email: support@jakubjirak.com
 
 Thank you for contributing! 🎉

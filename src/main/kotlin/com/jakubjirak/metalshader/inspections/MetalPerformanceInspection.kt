@@ -42,8 +42,8 @@ class MetalPerformanceInspection : LocalInspectionTool() {
     
     private fun checkBranchDivergence(element: PsiElement, text: String, holder: ProblemsHolder) {
         // Warn about potential thread divergence in compute kernels
-        if (text.contains("kernel") && text.contains("if") && 
-            (text.contains("thread_position_in_grid") || text.contains("gid"))) {
+        val kernelBranch = WORD_KERNEL.containsMatchIn(text) && WORD_IF.containsMatchIn(text)
+        if (kernelBranch && (text.contains("thread_position_in_grid") || text.contains("gid"))) {
             
             // Check if condition depends on thread ID
             if (text.contains("gid.x") || text.contains("gid.y") || text.contains("tid")) {
@@ -93,8 +93,7 @@ class MetalPerformanceInspection : LocalInspectionTool() {
     
     private fun checkVectorization(element: PsiElement, text: String, holder: ProblemsHolder) {
         // Scalar operations that could be vectorized
-        if (text.contains("float ") && !text.contains("float2") && 
-            !text.contains("float3") && !text.contains("float4")) {
+        if (text.contains("float ") && !VECTOR_FLOAT.containsMatchIn(text)) {
             
             // Count scalar float operations
             val scalarOps = text.count { it == '+' || it == '-' || it == '*' || it == '/' }
@@ -109,42 +108,35 @@ class MetalPerformanceInspection : LocalInspectionTool() {
     }
     
     private fun checkMathFunctions(element: PsiElement, text: String, holder: ProblemsHolder) {
-        // Expensive math functions
-        val expensiveFuncs = listOf("pow", "exp", "log", "sin", "cos", "tan", "sqrt")
-        
-        for (func in expensiveFuncs) {
-            if (text.contains("$func(")) {
-                // Check if in hot loop
-                if (text.contains("for") || text.contains("while")) {
-                    holder.registerProblem(
-                        element,
-                        "'$func()' in loop - consider fast math alternatives or precomputation",
-                        com.intellij.codeInspection.ProblemHighlightType.WEAK_WARNING
-                    )
-                }
-                
-                // Check for specific optimizations
-                when (func) {
-                    "pow" -> {
-                        if (text.contains("pow(") && text.contains(", 2")) {
-                            holder.registerProblem(
-                                element,
-                                "pow(x, 2) can be replaced with x * x",
-                                com.intellij.codeInspection.ProblemHighlightType.WEAK_WARNING
-                            )
-                        }
-                    }
-                    "sqrt" -> {
-                        if (text.contains("1.0 / sqrt(")) {
-                            holder.registerProblem(
-                                element,
-                                "Use rsqrt() instead of 1.0/sqrt() for better performance",
-                                com.intellij.codeInspection.ProblemHighlightType.WARNING
-                            )
-                        }
-                    }
-                }
-            }
+        val inLoop = WORD_LOOP.containsMatchIn(text)
+        EXPENSIVE_FUNCTIONS.filter { inLoop && text.contains("$it(") }.forEach { func ->
+            holder.registerProblem(
+                element,
+                "'$func()' in loop - consider fast math alternatives or precomputation",
+                com.intellij.codeInspection.ProblemHighlightType.WEAK_WARNING
+            )
         }
+        if (text.contains("pow(") && text.contains(", 2")) {
+            holder.registerProblem(
+                element,
+                "pow(x, 2) can be replaced with x * x",
+                com.intellij.codeInspection.ProblemHighlightType.WEAK_WARNING
+            )
+        }
+        if (text.contains("1.0 / sqrt(")) {
+            holder.registerProblem(
+                element,
+                "Use rsqrt() instead of 1.0/sqrt() for better performance",
+                com.intellij.codeInspection.ProblemHighlightType.WARNING
+            )
+        }
+    }
+
+    private companion object {
+        val EXPENSIVE_FUNCTIONS = listOf("pow", "exp", "log", "sin", "cos", "tan", "sqrt")
+        val WORD_KERNEL = Regex("""\bkernel\b""")
+        val WORD_IF = Regex("""\bif\b""")
+        val WORD_LOOP = Regex("""\b(for|while)\b""")
+        val VECTOR_FLOAT = Regex("""\bfloat[234]""")
     }
 }

@@ -7,7 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-IntelliJ-orange)](https://www.jetbrains.com/idea/)
 [![Metal](https://img.shields.io/badge/Metal-4.0-red)](https://developer.apple.com/metal/)
 
-**Professional Metal Shading Language support for JetBrains IDEs.** Build high-performance GPU applications with full Metal 3.2 and Metal 4.0 support for iOS, macOS, and visionOS.
+**Metal Shading Language editing support for JetBrains IDEs** — highlighting, completion, documentation, static checks and analysis helpers for `.metal` / `.msl` files. All analysis is static; the plugin does not compile, run or profile shaders on a GPU.
 
 ## Features
 
@@ -31,19 +31,29 @@
   - Vector swizzle validation
 
 - **Editor Features**
-  - Comment/uncomment (// and /* */)
-  - Brace matching
-  - Live templates for common patterns
+  - Comment/uncomment (// and /* */), brace and quote matching
+  - Code folding, formatting, structure view, find usages
+  - Live templates and file templates for common shader patterns
+
+- **Performance hints** (inspection) - thread-ID-dependent branches, repeated texture reads, large threadgroup
+  allocations, `pow(x, 2)`, `1.0/sqrt()`, expensive functions in loops
+
+### 🛠 Tools → Metal Shader Support
+
+- **Analyze Shader Complexity** / **Profile Shader Performance** - static instruction counts and rough cycle estimates
+- **Validate Shader** - additional static validation
+- **Optimize Shader** - suggested rewrites
+- **Transpile Shader** - best-effort, regex-based HLSL / WGSL / SPIR-V assembly starting point (review the output)
 
 ## Installation
 
-### From JetBrains Marketplace (Coming Soon)
+### From JetBrains Marketplace
 1. Open Settings → Plugins
 2. Search for "Metal Shader Support"
 3. Click Install
 
 ### Manual Installation
-1. Download the latest release from [Releases](https://github.com/yourusername/metal-shader-support-plugin/releases)
+1. Download the latest release from [Releases](https://github.com/JirakJ/metal-shader-support-plugin/releases)
 2. Open Settings → Plugins → ⚙️ → Install Plugin from Disk
 3. Select the downloaded `.zip` file
 4. Restart IDE
@@ -81,24 +91,14 @@ kernel void grayscaleKernel(
 
 ## Requirements
 
-- IntelliJ IDEA 2024.1+ / CLion 2024.1+ / AppCode 2024.1+
-- Java 21 or higher
-- macOS recommended (Metal is Apple-only framework)
-
-## Roadmap
-
-- [ ] Enhanced live shader preview
-- [ ] Advanced GPU debugger integration
-- [ ] Team collaboration features
-- [ ] CI/CD integration
-- [ ] Advanced analytics
+- Any JetBrains IDE 2024.2 or newer (build 242+)
 
 ## Development
 
 ### Building from Source
 
 ```bash
-git clone https://github.com/yourusername/metal-shader-support-plugin.git
+git clone https://github.com/JirakJ/metal-shader-support-plugin.git
 cd metal-shader-support-plugin
 ./gradlew buildPlugin
 ```
@@ -114,14 +114,14 @@ The plugin will be built to `build/distributions/metal-shader-support-plugin-*.z
 ### Testing
 
 ```bash
-./gradlew test
+./gradlew detekt test   # static analysis + unit tests
+./gradlew verifyPlugin  # JetBrains Plugin Verifier (also run in CI)
 ```
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/metal-shader-support-plugin/issues)
-- **Email**: support@metalshader.dev
-- **Documentation**: [Wiki](https://github.com/yourusername/metal-shader-support-plugin/wiki)
+- **Issues**: [GitHub Issues](https://github.com/JirakJ/metal-shader-support-plugin/issues)
+- **Email**: support@jakubjirak.com
 
 ## Acknowledgments
 

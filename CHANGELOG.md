@@ -1,5 +1,18 @@
 # Metal Shader Support Plugin - Changelog
 
+## [Unreleased]
+
+### Fixed
+- The Metal file type claimed `.h`, `.hpp` and `.mm` files, turning every C/C++/Objective-C header and Objective-C++ source into "Metal"; it now only claims `.metal` and `.msl`.
+- `since-build` was 232 although the plugin is compiled for Java 21 (platform 2024.2), so 2023.x IDEs could not load it; it is now 242.
+- plugin.xml registered a non-existent preview service.
+- Performance hints: keyword checks (`if`, `kernel`, `for`, `while`) match whole words; the `pow`/`sqrt` hints no longer depend on the loop check.
+
+### Removed
+- Live Shader Preview, Metal Debugger and Metal Profiler tool windows and the GPU Profiler action — they displayed fixed text and numbers (e.g. "60 FPS", "2.34 ms") instead of real data.
+- The settings page (none of its options were used) and a no-op plugin lifecycle listener.
+- Unused internal classes and documentation pages that described features the plugin does not have.
+
 ## [2026.8.0] - 2026-11-10
 
 ### Changed

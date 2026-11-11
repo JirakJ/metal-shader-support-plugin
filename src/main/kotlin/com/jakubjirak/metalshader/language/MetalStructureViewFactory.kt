@@ -39,32 +39,8 @@ class MetalStructureViewElement(private val element: PsiElement) : StructureView
     
     override fun getPresentation(): ItemPresentation {
         return object : ItemPresentation {
-            override fun getPresentableText(): String {
-                val text = element.text
-                
-                // Extract function names
-                when {
-                    text.contains("kernel") -> {
-                        val match = Regex("""kernel\s+\w+\s+(\w+)""").find(text)
-                        return "⚡ ${match?.groupValues?.get(1) ?: "kernel"}"
-                    }
-                    text.contains("vertex") -> {
-                        val match = Regex("""vertex\s+\w+\s+(\w+)""").find(text)
-                        return "🔺 ${match?.groupValues?.get(1) ?: "vertex"}"
-                    }
-                    text.contains("fragment") -> {
-                        val match = Regex("""fragment\s+\w+\s+(\w+)""").find(text)
-                        return "🎨 ${match?.groupValues?.get(1) ?: "fragment"}"
-                    }
-                    text.contains("struct") -> {
-                        val match = Regex("""struct\s+(\w+)""").find(text)
-                        return "📦 ${match?.groupValues?.get(1) ?: "struct"}"
-                    }
-                    text.startsWith("//") -> return "💬 Comment"
-                    else -> return element.toString()
-                }
-            }
-            
+            override fun getPresentableText(): String = presentableText(element.text) ?: element.toString()
+
             override fun getLocationString(): String? = null
             override fun getIcon(unused: Boolean): Icon? = MetalIcons.FILE
         }
@@ -76,11 +52,29 @@ class MetalStructureViewElement(private val element: PsiElement) : StructureView
         val children = mutableListOf<TreeElement>()
         element.children.forEach { child ->
             val text = child.text.trim()
-            if (text.startsWith("kernel") || text.startsWith("vertex") || 
-                text.startsWith("fragment") || text.startsWith("struct")) {
+            if (STRUCTURE_PREFIXES.any { text.startsWith(it) }) {
                 children.add(MetalStructureViewElement(child))
             }
         }
         return children.toTypedArray()
+    }
+}
+
+private val STRUCTURE_PREFIXES = listOf("kernel", "vertex", "fragment", "struct")
+
+private val NAMED_ELEMENTS = listOf(
+    Triple("kernel", Regex("""kernel\s+\w+\s+(\w+)"""), "⚡"),
+    Triple("vertex", Regex("""vertex\s+\w+\s+(\w+)"""), "🔺"),
+    Triple("fragment", Regex("""fragment\s+\w+\s+(\w+)"""), "🎨"),
+    Triple("struct", Regex("""struct\s+(\w+)"""), "📦"),
+)
+
+/** Structure-view label for a top-level element's text, or null when it is not a named shader element. */
+internal fun presentableText(text: String): String? {
+    val named = NAMED_ELEMENTS.firstOrNull { (keyword, _, _) -> text.contains(keyword) }
+    return when {
+        named != null -> "${named.third} ${named.second.find(text)?.groupValues?.get(1) ?: named.first}"
+        text.startsWith("//") -> "💬 Comment"
+        else -> null
     }
 }

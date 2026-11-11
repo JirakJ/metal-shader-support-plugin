@@ -15,7 +15,7 @@ class MetalShaderProfilerTest {
     @Test
     fun `profileShader returns minimal cycles for trivial shader`() {
         val shader = "int a = 1;"
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.estimatedGPUCycles >= 0)
         assertTrue(result.recommendations.contains("Shader is well optimized!"))
     }
@@ -23,7 +23,7 @@ class MetalShaderProfilerTest {
     @Test
     fun `profileShader detects texture sampling bottleneck`() {
         val shader = (1..15).joinToString("\n") { "tex.sample(s, uv$it);" }
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.bottlenecks.any { it.type == BottleneckType.TEXTURE_SAMPLING })
         assertTrue(result.recommendations.any { it.contains("texture") })
     }
@@ -31,7 +31,7 @@ class MetalShaderProfilerTest {
     @Test
     fun `profileShader detects ALU bottleneck from divisions`() {
         val shader = (1..8).joinToString("\n") { "float r$it = a / b$it;" }
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.bottlenecks.any {
             it.type == BottleneckType.ALU_BOUND && it.location.contains("Division")
         })
@@ -40,7 +40,7 @@ class MetalShaderProfilerTest {
     @Test
     fun `profileShader detects pow bottleneck`() {
         val shader = (1..5).joinToString("\n") { "float r$it = pow(x, $it.0);" }
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.bottlenecks.any {
             it.type == BottleneckType.ALU_BOUND && it.description.contains("pow()")
         })
@@ -49,14 +49,14 @@ class MetalShaderProfilerTest {
     @Test
     fun `profileShader detects thread divergence from many branches`() {
         val shader = (1..8).joinToString("\n") { "if (cond$it) { result += $it; }" }
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.bottlenecks.any { it.type == BottleneckType.THREAD_DIVERGENCE })
     }
 
     @Test
     fun `profileShader calculates latency from cycles`() {
         val shader = (1..5).joinToString("\n") { "float r$it = a * b$it;" }
-        val result = profiler.profileShader(shader, null)!!
+        val result = profiler.profileShader(shader)!!
         assertTrue(result.estimatedLatency > 0.0)
         assertEquals(result.estimatedGPUCycles.toDouble() / 1500.0, result.estimatedLatency, 0.001)
     }

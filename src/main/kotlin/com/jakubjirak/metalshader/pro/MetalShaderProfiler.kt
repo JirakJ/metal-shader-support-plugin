@@ -1,6 +1,5 @@
 package com.jakubjirak.metalshader.pro
 
-import com.intellij.openapi.project.Project
 
 /**
  * Shader profiling and GPU timing estimation
@@ -34,7 +33,7 @@ class MetalShaderProfiler {
         LOW, MEDIUM, HIGH, CRITICAL
     }
     
-    fun profileShader(shaderCode: String, project: Project?): ProfileResult? {
+    fun profileShader(shaderCode: String): ProfileResult? {
         var cycles = 0L
         val bottlenecks = mutableListOf<Bottleneck>()
         val recommendations = mutableListOf<String>()

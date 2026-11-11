@@ -16,7 +16,7 @@ class ProfileShaderAction : AnAction("Profile Shader Performance") {
         val file = e.getData(CommonDataKeys.PSI_FILE) as? MetalFile ?: return
         
         val profiler = MetalShaderProfiler()
-        val result = profiler.profileShader(file.text, project)
+        val result = profiler.profileShader(file.text)
         
         if (result != null) {
             val formatted = profiler.formatProfileResult(result)
