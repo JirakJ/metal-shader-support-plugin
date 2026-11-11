@@ -3,77 +3,49 @@
     <name>Metal Shader Support</name>
     <vendor email="support@jakubjirak.com" url="https://jakubjirak.com">Jakub Jirák</vendor>
 
-    <description><![CDATA[<h2>Metal Shader Support — Full Metal Shading Language IDE for JetBrains</h2>
+    <description><![CDATA[<h2>Metal Shader Support — Metal Shading Language in JetBrains IDEs</h2>
 
 <p>
-Build high-performance GPU shaders with full IDE power. Metal Shader Support delivers comprehensive Metal Shading Language support — from intelligent code completion with 300+ documented keywords to real-time shader preview and GPU profiling. Supports Metal 3.2 and Metal 4.0 for iOS, macOS, and visionOS development.
+Editing support for Metal Shading Language (<code>.metal</code>, <code>.msl</code>) files: highlighting,
+completion, documentation, static checks and a few analysis tools. All analysis is static — the plugin does not
+compile, run or profile shaders on a GPU.
 </p>
 
-<h3>Language Support</h3>
+<h3>Editing</h3>
 <ul>
-  <li>Full Metal 3.2 and Metal 4.0 syntax highlighting</li>
-  <li>Keywords: kernel, vertex, fragment, device, threadgroup</li>
-  <li>Types: float4, texture2d, sampler, matrices, vectors</li>
-  <li>Attributes: [[texture(0)]], [[buffer(0)]], [[stage_in]]</li>
-  <li>300+ built-in functions with inline documentation</li>
-  <li>Raytracing and mesh shader support (Metal 4.0)</li>
+  <li>Syntax highlighting for MSL keywords, types, attributes and built-in functions (incl. Metal 3/4 ray tracing and mesh shader names)</li>
+  <li>Completion for keywords, types, attributes, built-ins and Metal Performance Shaders class names</li>
+  <li>Quick documentation for common built-ins</li>
+  <li>7 live templates (vertex, fragment and compute kernels, …) and 3 file templates</li>
+  <li>Code folding, formatting, structure view, find usages, comments, brace and quote matching</li>
 </ul>
 
-<h3>Code Editing</h3>
+<h3>Checks</h3>
 <ul>
-  <li>Context-aware code completion with parameter hints</li>
-  <li>10 live templates for vertex, fragment, and compute shaders</li>
-  <li>Code folding, formatting, and structure view</li>
-  <li>Comment/uncomment, brace matching, quote handling</li>
-  <li>Find usages and documentation provider</li>
+  <li>Annotations: threadgroup size over 1024, duplicate <code>[[buffer(n)]]</code> / <code>[[texture(n)]]</code> bindings, attribute format, invalid swizzles</li>
+  <li>Performance hints: thread-ID-dependent branches, repeated texture reads, large threadgroup allocations, <code>pow(x, 2)</code>, <code>1.0/sqrt()</code>, expensive functions in loops</li>
 </ul>
 
-<h3>Error Detection and Analysis</h3>
+<h3>Tools → Metal Shader Support</h3>
 <ul>
-  <li>Real-time threadgroup size validation (max 1024 threads)</li>
-  <li>Texture access bounds checking</li>
-  <li>Attribute format validation</li>
-  <li>Vector swizzle validation</li>
-  <li>Performance inspection with optimization hints</li>
-</ul>
-
-<ul>
-  <li>Live shader preview at 60 FPS in a dedicated tool window</li>
-  <li>Metal debugger panel with variable inspection</li>
-  <li>GPU profiler with cycle estimation and bottleneck detection</li>
-  <li>Shader optimizer with one-click apply</li>
-  <li>Shader complexity analyzer</li>
-</ul>
-
-<ul>
-  <li>Cross-platform transpiler: Metal to SPIR-V, HLSL, and WGSL</li>
-  <li>Team collaboration features</li>
-  <li>CI/CD integration</li>
+  <li><b>Analyze Shader Complexity</b>, <b>Profile Shader Performance</b> — static instruction counts and rough cycle estimates</li>
+  <li><b>Validate Shader</b> — additional static validation</li>
+  <li><b>Optimize Shader</b> — suggested rewrites you can apply</li>
+  <li><b>Transpile Shader</b> — best-effort, regex-based starting point in HLSL, WGSL or SPIR-V assembly (always review the output)</li>
 </ul>
 
 <h3>Requirements</h3>
 <ul>
-  <li>IntelliJ IDEA 2024.1+ / CLion 2024.1+ / AppCode 2024.1+</li>
-  <li>Java 21 or higher</li>
-  <li>macOS recommended (Metal is an Apple-only framework)</li>
+  <li>Any JetBrains IDE 2024.2 or newer</li>
 </ul>
 
 <h3>Support</h3>
 <ul>
   <li>Issues: <a href="https://github.com/JirakJ/metal-shader-support-plugin/issues">GitHub Issues</a></li>
-  <li>Email: support@jakubjirak.com</li>
-  <li>Documentation: <a href="https://github.com/JirakJ/metal-shader-support-plugin/wiki">Wiki</a></li>
 </ul>]]></description>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
-
-
-    <!-- Dynamic Plugin Listeners - NO RESTART REQUIRED! -->
-    <applicationListeners>
-        <listener class="com.jakubjirak.metalshader.listeners.PluginLifecycleListener"
-                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
-    </applicationListeners>
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Notification Group -->
@@ -84,7 +56,7 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
                 implementationClass="com.jakubjirak.metalshader.language.MetalFileType"
                 fieldName="INSTANCE"
                 language="Metal"
-                extensions="metal;msl;mm;h;hpp"/>
+                extensions="metal;msl"/>
         
         <!-- File Type Factory for patterns -->
         <fileType.fileViewProviderFactory
@@ -179,33 +151,7 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
         <internalFileTemplate name="Metal Kernel"/>
         <internalFileTemplate name="Metal Header"/>
         
-        <!-- Tool Windows -->
-        <toolWindow id="Metal Shader Preview"
-                    factoryClass="com.jakubjirak.metalshader.pro.preview.MetalShaderPreviewToolWindowFactory"
-                    anchor="right"
-                    icon="AllIcons.Toolwindows.ToolWindowRun"/>
-        
-        <toolWindow id="Metal Debugger"
-                    factoryClass="com.jakubjirak.metalshader.pro.debugger.MetalDebuggerToolWindowFactory"
-                    anchor="bottom"
-                    icon="AllIcons.Toolwindows.ToolWindowDebugger"/>
-        
-        <toolWindow id="Metal Profiler"
-                    factoryClass="com.jakubjirak.metalshader.pro.profiler.MetalProfilerToolWindowFactory"
-                    anchor="bottom"
-                    icon="AllIcons.Actions.ProfileCPU"/>
-        
         <!-- Project Services -->
-        <projectService serviceImplementation="com.jakubjirak.metalshader.pro.preview.MetalShaderPreviewService"/>
-        <projectService serviceImplementation="com.jakubjirak.metalshader.enterprise.transpiler.MetalTranspilerService"/>
-    
-        <projectService serviceImplementation="com.jakubjirak.metalshader.settings.MetalShaderSettings"/>
-
-        <projectConfigurable
-            parentId="tools"
-            instance="com.jakubjirak.metalshader.settings.MetalShaderSettingsConfigurable"
-            id="metal.shader.support.settings"
-            displayName="Metal Shader Support"/>
 
         <notificationGroup id="Metal Shader Support Feedback" displayType="BALLOON"/>
         <projectActivity implementation="com.jakubjirak.metalshader.feedback.FeedbackNotifier"/>
@@ -238,11 +184,6 @@ Build high-performance GPU shaders with full IDE power. Metal Shader Support del
                     class="com.jakubjirak.metalshader.pro.OptimizeShaderAction"
                     text="Optimize Shader"
                     description="Automatic shader optimization suggestions">
-            </action>
-            <action id="Metal.ProfilerNew"
-                    class="com.jakubjirak.metalshader.pro.profiler.ShaderProfilerAction"
-                    text="GPU Profiler"
-                    description="Detailed GPU performance analysis">
             </action>
             <action id="Metal.Transpile"
                     class="com.jakubjirak.metalshader.enterprise.transpiler.TranspileAction"

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:MetalDocumentationProvider.kt$MetalDocumentationProvider$override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String?</ID>
+    <ID>CyclomaticComplexMethod:MetalLexer.kt$MetalLexer$override fun advance()</ID>
+    <ID>CyclomaticComplexMethod:MetalShaderOptimizer.kt$MetalShaderOptimizer$fun optimizeShader(shaderCode: String): List&lt;Optimization>?</ID>
+    <ID>CyclomaticComplexMethod:MetalShaderValidator.kt$MetalShaderValidator$fun validate(shaderCode: String): ValidationResult?</ID>
+    <ID>LongMethod:MetalCompletionContributor.kt$MetalCompletionContributor$private fun addSnippetCompletions(result: CompletionResultSet)</ID>
+    <ID>LongMethod:MetalDocumentationProvider.kt$MetalDocumentationProvider$override fun generateDoc(element: PsiElement?, originalElement: PsiElement?): String?</ID>
+    <ID>LongMethod:MetalLexer.kt$MetalLexer$override fun advance()</ID>
+    <ID>LongMethod:MetalShaderOptimizer.kt$MetalShaderOptimizer$fun optimizeShader(shaderCode: String): List&lt;Optimization>?</ID>
+    <ID>LongMethod:MetalShaderProfiler.kt$MetalShaderProfiler$fun profileShader(shaderCode: String): ProfileResult?</ID>
+    <ID>LongMethod:MetalShaderValidator.kt$MetalShaderValidator$fun validate(shaderCode: String): ValidationResult?</ID>
+    <ID>NestedBlockDepth:MetalLexer.kt$MetalLexer$override fun advance()</ID>
+    <ID>TooManyFunctions:MetalTranspiler.kt$MetalTranspiler</ID>
+  </CurrentIssues>
+</SmellBaseline>

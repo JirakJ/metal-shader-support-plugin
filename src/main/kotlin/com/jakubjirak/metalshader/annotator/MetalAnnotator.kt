@@ -41,8 +41,9 @@ class MetalAnnotator : Annotator {
 
     private fun checkTextureAccess(text: String, element: PsiElement, holder: AnnotationHolder) {
         // Warn about texture access without bounds checking
-        if (text.contains("texture") && text.contains(".read(") && 
-            !text.contains("get_width") && !text.contains("get_height")) {
+        val readsTexture = text.contains("texture") && text.contains(".read(")
+        val queriesSize = text.contains("get_width") || text.contains("get_height")
+        if (readsTexture && !queriesSize) {
             
             if (element.parent?.text?.contains("if") != true) {
                 holder.newAnnotation(
