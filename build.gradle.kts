@@ -54,6 +54,13 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <h3>2026.9.0</h3>
+            <ul>
+                <li>The Metal file type only claims .metal and .msl (no longer C/C++/Objective-C headers and .mm files).</li>
+                <li>since-build raised to 242 to match the Java 21 / 2024.2 build.</li>
+                <li>Performance hints match whole keywords.</li>
+                <li>Removed preview, debugger and profiler windows that showed fixed numbers, and the unused settings page.</li>
+            </ul>
             <h3>2026.8.0</h3>
             <ul>
                 <li>The plugin is now completely free — all features unlocked, no license needed.</li>
