@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2026.9.0] - 2026-11-11
+
 ### Fixed
 - The Metal file type claimed `.h`, `.hpp` and `.mm` files, turning every C/C++/Objective-C header and Objective-C++ source into "Metal"; it now only claims `.metal` and `.msl`.
 - `since-build` was 232 although the plugin is compiled for Java 21 (platform 2024.2), so 2023.x IDEs could not load it; it is now 242.
